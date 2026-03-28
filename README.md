@@ -30,8 +30,8 @@ This repository now contains:
 
 ```bash
 # 1) clone and enter
-git clone <your-fork-url>
-cd muslimconnect
+git clone (https://github.com/Mulla759/MuslimconnectV1.git)
+cd MuslimconnectV1
 
 # 2) create env
 python3 -m venv .venv
