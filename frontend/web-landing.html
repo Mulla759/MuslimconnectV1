@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F9F8F3">
+<title>MuslimConnect — Your Campus Muslim Community Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<!-- Tailwind CDN — used only on this marketing page -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/buttons.css">
+<link rel="stylesheet" href="css/utilities.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body class="min-h-screen w-full selection:bg-[#4A6C58] selection:text-white antialiased">
+
+<!-- ===== FIXED BACKGROUND BLOBS ===== -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+  <div class="blob bg-[#EBE9E1] w-96 h-96 top-0 left-[-100px]"></div>
+  <div class="blob bg-[#DCD9D0] w-[600px] h-[600px] bottom-0 right-[-200px] opacity-40"></div>
+</div>
+
+<!-- ===== FLOATING PILL NAVBAR ===== -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-6 transition-all duration-300">
+  <div class="w-full max-w-7xl flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md border border-[#DCD9D0]/50 rounded-full shadow-sm">
+    <a href="#" class="flex items-center gap-3">
+      <img src="assets/logo.svg" alt="MuslimConnect" width="28" height="28">
+      <span class="font-serif font-bold text-xl text-[#262522] tracking-tight">MuslimConnect</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-[#6B665F]">
+      <a href="#features" class="hover:text-[#4A6C58] transition-colors">Features</a>
+      <a href="#prayer" class="hover:text-[#4A6C58] transition-colors">Prayer Times</a>
+      <a href="#community" class="hover:text-[#4A6C58] transition-colors">Community</a>
+      <a href="#" class="hover:text-[#4A6C58] transition-colors">About</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="web-auth.html" class="hidden sm:block text-sm font-medium text-[#262522] hover:text-[#4A6C58]">Sign In</a>
+      <a href="web-auth.html#signup" class="bg-[#262522] text-[#F9F8F3] text-sm font-medium px-6 py-2.5 rounded-full hover:bg-[#4A6C58] transition-colors duration-300">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="pt-40 pb-20 lg:pt-56 lg:pb-32 px-6 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <!-- Left: Content -->
+    <div class="space-y-10 text-center lg:text-left relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#DCD9D0] bg-white text-[#4A6C58] text-xs font-semibold uppercase tracking-widest mb-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#4A6C58]"></span>
+        Campus Community Platform
+      </div>
+
+      <h1 class="text-6xl lg:text-8xl font-serif text-[#262522] leading-[0.95] tracking-tight">
+        Your Campus <br>
+        <span class="italic text-[#4A6C58]">Muslim Community</span>
+        <br> In One Place.
+      </h1>
+
+      <p class="text-xl text-[#6B665F] font-light leading-relaxed max-w-xl mx-auto lg:mx-0 border-l-2 border-[#DCD9D0] pl-6">
+        Prayer times, campus events, and Muslim student organizations — all in one app built to keep your community connected and thriving.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+        <a href="web-auth.html#signup" class="w-full sm:w-auto px-10 py-4 bg-[#262522] text-[#F9F8F3] rounded-lg font-medium text-lg hover:bg-[#4A6C58] hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-[#262522]/10 text-center">
+          Join Your Community
+        </a>
+        <a href="#features" class="w-full sm:w-auto px-10 py-4 bg-transparent text-[#262522] border border-[#DCD9D0] rounded-lg font-medium text-lg hover:border-[#262522] hover:bg-white transition-all flex items-center justify-center gap-2 group">
+          Learn More
+          <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Phone Mockup -->
+    <div class="relative lg:h-[700px] flex items-center justify-center lg:justify-end animate-float z-10">
+      <div class="relative w-[340px] h-[680px] bg-[#262522] rounded-[3.5rem] p-3 shadow-2xl shadow-black/20 ring-1 ring-[#DCD9D0]">
+        <!-- Dynamic Island -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-[#262522] rounded-b-2xl z-20"></div>
+
+        <div class="w-full h-full bg-[#F9F8F3] rounded-[2.8rem] overflow-hidden relative flex flex-col">
+          <!-- Phone header -->
+          <div class="pt-12 px-6 pb-4 flex justify-between items-center bg-white sticky top-0 z-10 border-b border-[#F0EFE9]">
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold text-[#6B665F] uppercase tracking-wider">Seattle, WA</span>
+              <span class="font-serif font-bold text-[#262522] text-lg">MuslimConnect</span>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-[#EBE9E1] overflow-hidden border border-[#DCD9D0]">
+              <img src="https://ui-avatars.com/api/?name=Ali+H&background=262522&color=fff" alt="User">
+            </div>
+          </div>
+
+          <!-- Scrollable content -->
+          <div class="flex-1 overflow-y-auto px-4 pb-20 no-scrollbar bg-[#F9F8F3]">
+            <!-- Prayer card -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm mb-4 border border-[#EBE9E1] mt-4">
+              <div class="text-center mb-4">
+                <div class="text-[10px] font-bold text-[#6B665F] uppercase tracking-wide">Next Prayer</div>
+                <div class="text-3xl font-serif italic text-[#262522] mt-1">Dhuhr</div>
+                <div class="text-xl font-bold text-[#4A6C58] mt-1">12:47 PM</div>
+                <div class="inline-block bg-[#4A6C58]/10 text-[#4A6C58] text-[10px] font-bold px-2 py-1 rounded-full mt-2">in 23 min</div>
+              </div>
+              <div class="h-1 w-full bg-[#EBE9E1] rounded-full overflow-hidden flex">
+                <div class="w-[70%] bg-[#4A6C58] h-full rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- Event card -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#EBE9E1] mb-4 group">
+              <div class="relative h-48 bg-[#262522]">
+                <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 10px 10px;"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#262522]/90 to-transparent"></div>
+                <div class="absolute top-4 left-4 bg-[#F9F8F3] text-[#262522] text-[10px] font-bold px-3 py-1 rounded-md">
+                  MAR 7 · 12:30 PM
+                </div>
+                <div class="absolute bottom-4 left-4 right-4">
+                  <div class="text-[#DCD9D0] text-[10px] font-medium mb-1 uppercase tracking-wide">Muslim Student Association</div>
+                  <h3 class="text-white font-serif italic text-xl leading-tight">Annual MSA Gala Night</h3>
+                  <div class="flex items-center gap-1 text-[#DCD9D0] text-[10px] mt-2">
+                    <i class="ph-fill ph-map-pin"></i> University Ballroom
+                  </div>
+                </div>
+              </div>
+              <div class="p-3 flex gap-2">
+                <button class="flex-1 bg-[#262522] text-white py-2 rounded-lg text-xs font-semibold hover:bg-[#4A6C58] transition-colors">RSVP</button>
+                <button class="w-8 h-8 flex items-center justify-center bg-[#F9F8F3] text-[#262522] rounded-lg border border-[#EBE9E1] hover:bg-[#EBE9E1]">
+                  <i class="ph-bold ph-share-network"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Study circle card -->
+            <div class="bg-[#4A6C58] rounded-2xl p-5 text-white relative overflow-hidden">
+              <div class="font-serif italic text-lg">Study Circle</div>
+              <div class="text-white/90 text-xs mt-1 font-medium">Tonight at 7:00 PM</div>
+              <i class="ph-duotone ph-book-open absolute right-4 bottom-4 text-4xl opacity-20"></i>
+            </div>
+          </div>
+
+          <!-- Floating bottom nav -->
+          <div class="absolute bottom-6 left-4 right-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-[#EBE9E1] px-6 py-4 flex justify-between items-center z-20">
+            <i class="ph-fill ph-house text-[#262522] text-xl"></i>
+            <i class="ph-bold ph-compass text-[#DCD9D0] text-xl"></i>
+            <div class="w-10 h-10 bg-[#262522] rounded-full flex items-center justify-center -mt-8 border-4 border-[#F9F8F3] text-white">
+              <i class="ph-bold ph-plus"></i>
+            </div>
+            <i class="ph-bold ph-users text-[#DCD9D0] text-xl"></i>
+            <i class="ph-bold ph-user text-[#DCD9D0] text-xl"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== FEATURES ===== -->
+<section id="features" class="py-24 relative bg-white border-t border-[#DCD9D0]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col lg:flex-row justify-between items-end mb-16 border-b border-[#DCD9D0] pb-8">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-1 text-[#4A6C58] font-bold tracking-widest uppercase text-xs mb-3">Features</div>
+        <h2 class="text-4xl lg:text-5xl font-serif text-[#262522]">Everything Your Community Needs</h2>
+      </div>
+      <p class="text-[#6B665F] text-lg mt-4 lg:mt-0 max-w-sm">From daily prayers to campus events, MuslimConnect keeps your spiritual and social life organized.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+      <div class="group">
+        <div class="text-[#262522] text-3xl mb-4 group-hover:scale-110 transition-transform duration-500 origin-left">
+          <i class="ph-duotone ph-clock"></i>
+        </div>
+        <h3 class="text-2xl font-serif italic text-[#262522] mb-3 group-hover:text-[#4A6C58] transition-colors">Accurate Prayer Times</h3>
+        <p class="text-[#6B665F] leading-relaxed">GPS-based prayer times with countdown, urgency alerts, and full daily schedule. Never miss a salah.</p>
+      </div>
+
+      <div class="group">
+        <div class="text-[#262522] text-3xl mb-4 group-hover:scale-110 transition-transform duration-500 origin-left">
+          <i class="ph-duotone ph-calendar-plus"></i>
+        </div>
+        <h3 class="text-2xl font-serif italic text-[#262522] mb-3 group-hover:text-[#4A6C58] transition-colors">Event Discovery</h3>
+        <p class="text-[#6B665F] leading-relaxed">Instagram-native 9:16 flyers, RSVP tracking, and urgency indicators so you know what's happening now.</p>
+      </div>
+
+      <div class="group">
+        <div class="text-[#262522] text-3xl mb-4 group-hover:scale-110 transition-transform duration-500 origin-left">
+          <i class="ph-duotone ph-users-three"></i>
+        </div>
+        <h3 class="text-2xl font-serif italic text-[#262522] mb-3 group-hover:text-[#4A6C58] transition-colors">Org Directory</h3>
+        <p class="text-[#6B665F] leading-relaxed">Browse and follow verified Muslim student organizations. Get their events directly in your feed.</p>
+      </div>
+
+      <div class="group border-t border-[#DCD9D0] pt-12 md:border-none md:pt-0">
+        <div class="text-[#262522] text-3xl mb-4 group-hover:scale-110 transition-transform duration-500 origin-left">
+          <i class="ph-duotone ph-share-network"></i>
+        </div>
+        <h3 class="text-2xl font-serif italic text-[#262522] mb-3 group-hover:text-[#4A6C58] transition-colors">Quick Share</h3>
+        <p class="text-[#6B665F] leading-relaxed">Share events to WhatsApp, Instagram stories, and iMessage with one tap. Spread the word effortlessly.</p>
+      </div>
+
+      <div class="group border-t border-[#DCD9D0] pt-12 md:border-none md:pt-0">
+        <div class="text-[#262522] text-3xl mb-4 group-hover:scale-110 transition-transform duration-500 origin-left">
+          <i class="ph-duotone ph-bell-ringing"></i>
+        </div>
+        <h3 class="text-2xl font-serif italic text-[#262522] mb-3 group-hover:text-[#4A6C58] transition-colors">Smart Notifications</h3>
+        <p class="text-[#6B665F] leading-relaxed">Customizable alerts for prayer times, followed org events, and registration deadlines.</p>
+      </div>
+
+      <div class="group border-t border-[#DCD9D0] pt-12 md:border-none md:pt-0">
+        <div class="text-[#262522] text-3xl mb-4 group-hover:scale-110 transition-transform duration-500 origin-left">
+          <i class="ph-duotone ph-heart"></i>
+        </div>
+        <h3 class="text-2xl font-serif italic text-[#262522] mb-3 group-hover:text-[#4A6C58] transition-colors">Save & RSVP</h3>
+        <p class="text-[#6B665F] leading-relaxed">Bookmark events, RSVP instantly, and build your personal calendar of community activities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRAYER TIMES ===== -->
+<section id="prayer" class="py-24 bg-[#EBE9E1]">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-serif text-[#262522] mb-6">Prayer at a Glance</h2>
+      <p class="text-[#6B665F] text-lg max-w-xl mx-auto">Automatic location-based prayer times with visual urgency indicators.</p>
+    </div>
+
+    <div class="bg-white rounded-t-lg border-b-2 border-[#262522] shadow-sm">
+      <!-- Table header -->
+      <div class="grid grid-cols-2 p-6 border-b border-[#DCD9D0] bg-[#F9F8F3] rounded-t-lg">
+        <div class="text-xs font-bold uppercase tracking-widest text-[#6B665F]">Prayer Name</div>
+        <div class="text-xs font-bold uppercase tracking-widest text-[#6B665F] text-right">Time</div>
+      </div>
+
+      <div class="divide-y divide-[#DCD9D0]">
+        <div class="grid grid-cols-2 p-6 hover:bg-[#F9F8F3] transition-colors items-center group">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-[#EBE9E1] rounded-full flex items-center justify-center text-[#6B665F] group-hover:bg-[#262522] group-hover:text-white transition-colors">
+              <i class="ph-fill ph-sun-horizon"></i>
+            </div>
+            <span class="text-2xl font-serif text-[#262522]">Fajr</span>
+          </div>
+          <div class="text-right text-xl font-medium text-[#6B665F] font-serif">5:42 <span class="text-sm uppercase">AM</span></div>
+        </div>
+
+        <div class="grid grid-cols-2 p-6 hover:bg-[#F9F8F3] transition-colors items-center group">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-[#EBE9E1] rounded-full flex items-center justify-center text-[#6B665F] group-hover:bg-[#262522] group-hover:text-white transition-colors">
+              <i class="ph-fill ph-sun"></i>
+            </div>
+            <span class="text-2xl font-serif text-[#262522]">Sunrise</span>
+          </div>
+          <div class="text-right text-xl font-medium text-[#6B665F] font-serif">7:01 <span class="text-sm uppercase">AM</span></div>
+        </div>
+
+        <div class="grid grid-cols-2 p-8 bg-[#262522] items-center relative overflow-hidden">
+          <div class="flex items-center gap-4 relative z-10">
+            <div class="w-12 h-12 bg-[#4A6C58] rounded-full flex items-center justify-center text-white shadow-lg">
+              <i class="ph-fill ph-sun-dim"></i>
+            </div>
+            <div>
+              <span class="text-3xl font-serif text-white italic">Dhuhr</span>
+              <div class="text-[#4A6C58] text-xs font-bold uppercase tracking-wider mt-1">Next Prayer · In 23 Min</div>
+            </div>
+          </div>
+          <div class="text-right relative z-10">
+            <div class="text-3xl font-bold text-[#4A6C58]">12:47 <span class="text-lg align-top text-white/60">PM</span></div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 p-6 hover:bg-[#F9F8F3] transition-colors items-center group">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-[#EBE9E1] rounded-full flex items-center justify-center text-[#6B665F] group-hover:bg-[#262522] group-hover:text-white transition-colors">
+              <i class="ph-fill ph-cloud-sun"></i>
+            </div>
+            <span class="text-2xl font-serif text-[#262522]">Asr</span>
+          </div>
+          <div class="text-right text-xl font-medium text-[#6B665F] font-serif">4:12 <span class="text-sm uppercase">PM</span></div>
+        </div>
+
+        <div class="grid grid-cols-2 p-6 hover:bg-[#F9F8F3] transition-colors items-center group">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-[#EBE9E1] rounded-full flex items-center justify-center text-[#6B665F] group-hover:bg-[#262522] group-hover:text-white transition-colors">
+              <i class="ph-fill ph-moon-stars"></i>
+            </div>
+            <span class="text-2xl font-serif text-[#262522]">Maghrib</span>
+          </div>
+          <div class="text-right text-xl font-medium text-[#6B665F] font-serif">6:28 <span class="text-sm uppercase">PM</span></div>
+        </div>
+
+        <div class="grid grid-cols-2 p-6 hover:bg-[#F9F8F3] transition-colors items-center group">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-[#EBE9E1] rounded-full flex items-center justify-center text-[#6B665F] group-hover:bg-[#262522] group-hover:text-white transition-colors">
+              <i class="ph-fill ph-moon"></i>
+            </div>
+            <span class="text-2xl font-serif text-[#262522]">Isha</span>
+          </div>
+          <div class="text-right text-xl font-medium text-[#6B665F] font-serif">7:48 <span class="text-sm uppercase">PM</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-6">
+      <button class="text-sm font-semibold border-b border-[#262522] pb-0.5 hover:text-[#4A6C58] hover:border-[#4A6C58] transition-colors">View Full Monthly Schedule</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ORGANIZATIONS ===== -->
+<section id="community" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-1 text-[#4A6C58] font-bold tracking-widest uppercase text-xs mb-3">Community</div>
+      <h2 class="text-4xl font-serif text-[#262522] mb-4">Active Organizations</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white p-8 rounded-xl border border-[#DCD9D0] flex flex-col items-center text-center hover:border-[#4A6C58] hover:shadow-lg transition-all duration-300 group">
+        <div class="w-20 h-20 rounded-full bg-[#F9F8F3] flex items-center justify-center text-[#262522] text-3xl mb-6 border border-[#EBE9E1] group-hover:scale-110 transition-transform">
+          <i class="ph-duotone ph-mosque"></i>
+        </div>
+        <h3 class="font-serif italic font-bold text-[#262522] text-xl mb-1">Islamic Center</h3>
+        <p class="text-xs text-[#6B665F] font-medium mb-6 uppercase tracking-wider">2.4k followers · 12 events</p>
+        <button class="w-full py-3 rounded-lg bg-[#262522] text-white font-medium hover:bg-[#4A6C58] transition-colors text-sm">Follow</button>
+      </div>
+
+      <div class="bg-white p-8 rounded-xl border border-[#DCD9D0] flex flex-col items-center text-center hover:border-[#4A6C58] hover:shadow-lg transition-all duration-300 group">
+        <div class="w-20 h-20 rounded-full bg-[#F9F8F3] flex items-center justify-center text-[#262522] text-3xl mb-6 border border-[#EBE9E1] group-hover:scale-110 transition-transform">
+          <i class="ph-duotone ph-book-open-text"></i>
+        </div>
+        <h3 class="font-serif italic font-bold text-[#262522] text-xl mb-1">Al-Noor Foundation</h3>
+        <p class="text-xs text-[#6B665F] font-medium mb-6 uppercase tracking-wider">1.8k followers · 8 events</p>
+        <button class="w-full py-3 rounded-lg border border-[#DCD9D0] text-[#262522] font-medium hover:border-[#262522] transition-colors text-sm">Follow</button>
+      </div>
+
+      <div class="bg-white p-8 rounded-xl border border-[#DCD9D0] flex flex-col items-center text-center hover:border-[#4A6C58] hover:shadow-lg transition-all duration-300 group">
+        <div class="w-20 h-20 rounded-full bg-[#F9F8F3] flex items-center justify-center text-[#262522] text-3xl mb-6 border border-[#EBE9E1] group-hover:scale-110 transition-transform">
+          <i class="ph-duotone ph-users"></i>
+        </div>
+        <h3 class="font-serif italic font-bold text-[#262522] text-xl mb-1">Muslim Youth Alliance</h3>
+        <p class="text-xs text-[#6B665F] font-medium mb-6 uppercase tracking-wider">950 followers · 6 events</p>
+        <button class="w-full py-3 rounded-lg border border-[#DCD9D0] text-[#262522] font-medium hover:border-[#262522] transition-colors text-sm">Follow</button>
+      </div>
+
+      <div class="bg-white p-8 rounded-xl border border-[#DCD9D0] flex flex-col items-center text-center hover:border-[#4A6C58] hover:shadow-lg transition-all duration-300 group">
+        <div class="w-20 h-20 rounded-full bg-[#F9F8F3] flex items-center justify-center text-[#262522] text-3xl mb-6 border border-[#EBE9E1] group-hover:scale-110 transition-transform">
+          <i class="ph-duotone ph-graduation-cap"></i>
+        </div>
+        <h3 class="font-serif italic font-bold text-[#262522] text-xl mb-1">MSA UW Chapter</h3>
+        <p class="text-xs text-[#6B665F] font-medium mb-6 uppercase tracking-wider">3.1k followers · 15 events</p>
+        <button class="w-full py-3 rounded-lg border border-[#DCD9D0] text-[#262522] font-medium hover:border-[#262522] transition-colors text-sm">Follow</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="py-24 px-6 bg-[#262522]">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center relative">
+      <h2 class="text-4xl md:text-6xl font-serif text-[#F9F8F3] mb-8">Ready to Connect?</h2>
+      <p class="text-[#DCD9D0] text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light">
+        Join thousands of Muslim students already using MuslimConnect to stay connected to their faith and community on campus.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+        <a href="web-auth.html#signup" class="w-full sm:w-auto px-12 py-5 bg-[#F9F8F3] text-[#262522] rounded-lg font-bold text-lg hover:bg-white hover:scale-105 transition-all shadow-xl text-center">
+          Create Free Account
+        </a>
+        <a href="web-dashboard.html" class="w-full sm:w-auto px-12 py-5 bg-transparent text-[#F9F8F3] border border-[#F9F8F3]/30 rounded-lg font-bold text-lg hover:bg-[#F9F8F3]/10 transition-all text-center">
+          View Demo Feed
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-[#EBE9E1] pt-20 pb-10 border-t border-[#DCD9D0]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-center mb-16">
+      <div class="flex items-center gap-3 mb-8 md:mb-0">
+        <div class="w-10 h-10 rounded-full bg-[#262522] flex items-center justify-center">
+          <img src="assets/logo.svg" alt="" width="22" height="22" style="filter: brightness(0) invert(1);">
+        </div>
+        <span class="font-serif font-bold text-2xl text-[#262522]">MuslimConnect</span>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-10 text-sm font-semibold text-[#262522] uppercase tracking-wider">
+        <a href="#" class="hover:text-[#4A6C58] transition-colors">Privacy</a>
+        <a href="#" class="hover:text-[#4A6C58] transition-colors">Terms</a>
+        <a href="#" class="hover:text-[#4A6C58] transition-colors">Contact</a>
+        <a href="#" class="hover:text-[#4A6C58] transition-colors">About</a>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[#DCD9D0] text-[#6B665F] text-xs">
+      <div class="mb-4 md:mb-0">&copy; 2026 MuslimConnect. All rights reserved.</div>
+      <div class="flex gap-4">
+        <i class="ph-fill ph-instagram-logo text-lg hover:text-[#262522] cursor-pointer"></i>
+        <i class="ph-fill ph-twitter-logo text-lg hover:text-[#262522] cursor-pointer"></i>
+        <i class="ph-fill ph-linkedin-logo text-lg hover:text-[#262522] cursor-pointer"></i>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/theme-manager.js" defer></script>
+<script src="js/toggle-manager.js" defer></script>
+</body>
+</html>

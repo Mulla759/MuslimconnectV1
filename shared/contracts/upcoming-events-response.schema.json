@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://muslimconnect.local/contracts/upcoming-events-response.schema.json",
+  "title": "UpcomingEventsResponse",
+  "type": "object",
+  "required": ["items", "count"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "organization_id",
+          "organization_name",
+          "organization_verified",
+          "title",
+          "location",
+          "start_datetime",
+          "status"
+        ],
+        "properties": {
+          "id": {"type": "integer", "minimum": 1},
+          "organization_id": {"type": "integer", "minimum": 1},
+          "organization_name": {"type": "string", "minLength": 1},
+          "organization_verified": {"type": "boolean"},
+          "title": {"type": "string", "minLength": 1},
+          "description": {"type": ["string", "null"]},
+          "location": {"type": "string", "minLength": 1},
+          "start_datetime": {"type": "string"},
+          "end_datetime": {"type": ["string", "null"]},
+          "status": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "count": {"type": "integer", "minimum": 0}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F9F8F3">
+<title>MuslimConnect — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+<!-- Shared CSS -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/buttons.css">
+<link rel="stylesheet" href="css/utilities.css">
+<link rel="stylesheet" href="css/navbar-web.css">
+<link rel="stylesheet" href="css/segmented-control.css">
+<link rel="stylesheet" href="css/prayer-widget.css">
+<link rel="stylesheet" href="css/event-card.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<!-- ========== TOP NAVBAR ========== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <div class="navbar-left">
+      <a href="#" class="navbar-logo" aria-label="MuslimConnect Home">
+        <img src="assets/logo.svg" alt="MuslimConnect" width="36" height="36" style="flex-shrink:0;">
+        <span class="navbar-brand">MuslimConnect</span>
+      </a>
+    </div>
+
+    <div class="navbar-center">
+      <a href="#" class="nav-link active">Feed</a>
+      <a href="#" class="nav-link">Events</a>
+      <a href="web-orgs.html" class="nav-link">Organizations</a>
+    </div>
+
+    <div class="navbar-right">
+      <div class="nav-search">
+        <span class="nav-search-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
+        <input type="text" placeholder="Search events, orgs..." aria-label="Search">
+      </div>
+
+      <button class="nav-notification" aria-label="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notification-dot"></span>
+      </button>
+
+      <div class="nav-avatar" role="button" tabindex="0" aria-label="User menu: AJ">AJ</div>
+
+      <button class="hamburger-btn" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== MAIN LAYOUT ========== -->
+<main class="dashboard-layout">
+
+  <!-- ========== LEFT SIDEBAR ========== -->
+  <aside class="sidebar-left" aria-label="Sidebar">
+
+    <!-- Prayer Times Widget -->
+    <div class="card prayer-widget">
+      <div class="prayer-widget-content">
+        <div class="prayer-next-label">Next Prayer</div>
+        <div class="prayer-name">Asr</div>
+        <div class="prayer-time">3:45 PM</div>
+        <span class="prayer-countdown">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          in 1h 23m
+        </span>
+        <button class="prayer-schedule-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          View Full Schedule
+        </button>
+      </div>
+    </div>
+
+    <!-- Your Organizations -->
+    <div class="card">
+      <div class="card-header">Your Organizations</div>
+      <div class="card-body">
+        <div class="org-item">
+          <div class="org-item-avatar teal">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="org-item-info">
+            <div class="org-item-name">Muslim Student Association</div>
+            <div class="org-item-followers">1,240 followers</div>
+          </div>
+        </div>
+        <div class="org-item">
+          <div class="org-item-avatar purple">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <div class="org-item-info">
+            <div class="org-item-name">Islamic Knowledge Circle</div>
+            <div class="org-item-followers">680 followers</div>
+          </div>
+        </div>
+        <div class="org-item">
+          <div class="org-item-avatar amber">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="org-item-info">
+            <div class="org-item-name">Sisters of Light</div>
+            <div class="org-item-followers">390 followers</div>
+          </div>
+        </div>
+        <div class="org-item">
+          <div class="org-item-avatar rose">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="org-item-info">
+            <div class="org-item-name">Dawah Outreach Team</div>
+            <div class="org-item-followers">210 followers</div>
+          </div>
+        </div>
+      </div>
+      <a href="web-orgs.html" class="card-see-all">See All</a>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="card">
+      <a href="#" class="quick-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></svg>
+        My RSVPs
+      </a>
+      <a href="#" class="quick-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        Saved Events
+      </a>
+      <a href="#" class="quick-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Settings
+      </a>
+    </div>
+  </aside>
+
+  <!-- ========== CENTER FEED ========== -->
+  <section class="feed-area" aria-label="Event feed">
+
+    <!-- Segmented Control -->
+    <div class="segmented-control" role="tablist">
+      <button class="seg-btn active" role="tab" aria-selected="true" data-tab="latest">Latest</button>
+      <button class="seg-btn" role="tab" aria-selected="false" data-tab="following">Following</button>
+    </div>
+
+    <!-- Event Card 1 -->
+    <article class="event-card" onclick="window.location.href='web-event-detail.html'">
+      <div class="event-flyer">
+        <div class="event-flyer-bg flyer-gradient-1">
+          <div class="flyer-content">
+            <div class="flyer-org-badge">Muslim Student Association Presents</div>
+            <div class="flyer-title">Annual MSA<br>Gala Night 2026</div>
+            <div class="flyer-date-info">March 15, 2026 &middot; 7:00 PM</div>
+          </div>
+          <svg class="flyer-decoration" viewBox="0 0 40 40" fill="white"><path d="M20 2L23.5 14H36L25.75 22L29.25 34L20 26L10.75 34L14.25 22L4 14H16.5L20 2Z"/></svg>
+        </div>
+        <div class="event-date-badge">MAR 15 &middot; 7:00 PM</div>
+        <div class="urgency-badge this-week">This Week</div>
+      </div>
+      <div class="event-card-content">
+        <div class="event-org-row">
+          <div class="event-org-avatar" style="background: var(--green-500);">M</div>
+          <span class="event-org-name">Muslim Student Association</span>
+          <span class="verified-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        </div>
+        <h3 class="event-title">Annual MSA Gala Night 2026</h3>
+        <div class="event-location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          University Ballroom, Main Campus
+        </div>
+        <div class="event-actions">
+          <button class="action-btn save-btn" aria-label="Save event" onclick="event.stopPropagation();">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+          <button class="action-btn" aria-label="Share event" onclick="event.stopPropagation();">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+          <div class="action-spacer"></div>
+          <button class="rsvp-btn" onclick="event.stopPropagation();">RSVP</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Event Card 2 -->
+    <article class="event-card" onclick="window.location.href='web-event-detail.html'">
+      <div class="event-flyer">
+        <div class="event-flyer-bg flyer-gradient-2">
+          <div class="flyer-content">
+            <div class="flyer-org-badge">Islamic Knowledge Circle</div>
+            <div class="flyer-title">Quran Reflection<br>Circle</div>
+            <div class="flyer-date-info">March 18, 2026 &middot; 6:30 PM</div>
+          </div>
+          <svg class="flyer-decoration" viewBox="0 0 40 40" fill="white"><path d="M20 2L23.5 14H36L25.75 22L29.25 34L20 26L10.75 34L14.25 22L4 14H16.5L20 2Z"/></svg>
+        </div>
+        <div class="event-date-badge">MAR 18 &middot; 6:30 PM</div>
+      </div>
+      <div class="event-card-content">
+        <div class="event-org-row">
+          <div class="event-org-avatar" style="background: #8B5CF6;">I</div>
+          <span class="event-org-name">Islamic Knowledge Circle</span>
+          <span class="verified-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        </div>
+        <h3 class="event-title">Quran Reflection Circle</h3>
+        <div class="event-location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Room 204, Student Center
+        </div>
+        <div class="event-actions">
+          <button class="action-btn save-btn" aria-label="Save event" onclick="event.stopPropagation();">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+          <button class="action-btn" aria-label="Share event" onclick="event.stopPropagation();">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+          <div class="action-spacer"></div>
+          <button class="rsvp-btn" onclick="event.stopPropagation();">RSVP</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Event Card 3 -->
+    <article class="event-card" onclick="window.location.href='web-event-detail.html'">
+      <div class="event-flyer">
+        <div class="event-flyer-bg flyer-gradient-3">
+          <div class="flyer-content">
+            <div class="flyer-org-badge">Sisters of Light</div>
+            <div class="flyer-title">Sisters Iftar<br>Gathering</div>
+            <div class="flyer-date-info">March 20, 2026 &middot; 5:45 PM</div>
+          </div>
+          <svg class="flyer-decoration" viewBox="0 0 40 40" fill="white"><path d="M20 2L23.5 14H36L25.75 22L29.25 34L20 26L10.75 34L14.25 22L4 14H16.5L20 2Z"/></svg>
+        </div>
+        <div class="event-date-badge">MAR 20 &middot; 5:45 PM</div>
+        <div class="urgency-badge open-rsvp">Open RSVP</div>
+      </div>
+      <div class="event-card-content">
+        <div class="event-org-row">
+          <div class="event-org-avatar" style="background: #D946EF;">S</div>
+          <span class="event-org-name">Sisters of Light</span>
+        </div>
+        <h3 class="event-title">Sisters Iftar Gathering</h3>
+        <div class="event-location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Community Hall, Islamic Center
+        </div>
+        <div class="event-actions">
+          <button class="action-btn save-btn" aria-label="Save event" onclick="event.stopPropagation();">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+          <button class="action-btn" aria-label="Share event" onclick="event.stopPropagation();">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+          <div class="action-spacer"></div>
+          <button class="rsvp-btn" onclick="event.stopPropagation();">RSVP</button>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ========== RIGHT SIDEBAR ========== -->
+  <aside class="sidebar-right" aria-label="Additional info">
+
+    <!-- Upcoming Deadlines -->
+    <div class="card">
+      <div class="card-header">Upcoming Deadlines</div>
+      <div class="card-body">
+        <div class="deadline-item">
+          <span class="deadline-dot red"></span>
+          <div class="deadline-info">
+            <div class="deadline-name">MSA Gala Night</div>
+            <div class="deadline-closes">RSVP closes in 2 days</div>
+          </div>
+        </div>
+        <div class="deadline-item">
+          <span class="deadline-dot amber"></span>
+          <div class="deadline-info">
+            <div class="deadline-name">Quran Reflection Circle</div>
+            <div class="deadline-closes">RSVP closes in 5 days</div>
+          </div>
+        </div>
+        <div class="deadline-item">
+          <span class="deadline-dot green"></span>
+          <div class="deadline-info">
+            <div class="deadline-name">Sisters Iftar Gathering</div>
+            <div class="deadline-closes">RSVP closes in 8 days</div>
+          </div>
+        </div>
+        <div class="deadline-item">
+          <span class="deadline-dot green"></span>
+          <div class="deadline-info">
+            <div class="deadline-name">Youth Leadership Retreat</div>
+            <div class="deadline-closes">RSVP closes in 12 days</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommended Organizations -->
+    <div class="card">
+      <div class="card-header">Recommended For You</div>
+      <div class="card-body">
+        <div class="rec-org-item">
+          <div class="rec-org-avatar blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="rec-org-info">
+            <div class="rec-org-name">Hadith Study Group</div>
+            <div class="rec-org-members">320 members</div>
+          </div>
+          <button class="follow-btn" onclick="event.stopPropagation();">Follow</button>
+        </div>
+        <div class="rec-org-item">
+          <div class="rec-org-avatar green">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="rec-org-info">
+            <div class="rec-org-name">Muslim Mental Health</div>
+            <div class="rec-org-members">510 members</div>
+          </div>
+          <button class="follow-btn" onclick="event.stopPropagation();">Follow</button>
+        </div>
+        <div class="rec-org-item">
+          <div class="rec-org-avatar pink">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="rec-org-info">
+            <div class="rec-org-name">Charity Champions</div>
+            <div class="rec-org-members">185 members</div>
+          </div>
+          <button class="follow-btn" onclick="event.stopPropagation();">Follow</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Community Stats -->
+    <div class="card community-stats">
+      <p class="community-stats-text">
+        <strong>2,400+</strong> students &middot; <strong>45</strong> orgs &middot; <strong>120+</strong> events
+      </p>
+      <div class="community-stats-bar">
+        <span style="background: var(--green-500);"></span>
+        <span style="background: var(--green-500);"></span>
+        <span style="background: var(--warning);"></span>
+        <span style="background: var(--warning);"></span>
+        <span style="background: var(--green-500);"></span>
+      </div>
+    </div>
+
+  </aside>
+</main>
+
+<!-- Shared JS -->
+<script src="js/theme-manager.js" defer></script>
+<script src="js/toggle-manager.js" defer></script>
+<script src="js/segmented-control.js" defer></script>
+</body>
+</html>

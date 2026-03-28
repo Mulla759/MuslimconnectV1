@@ -1,0 +1,42 @@
+/* Prayer Widget (desktop sidebar) */
+.prayer-widget {
+  position: relative;
+  background: linear-gradient(145deg, var(--surface-card), var(--surface-card));
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+.prayer-widget::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(74,108,88,0.04), rgba(74,108,88,0.02));
+  pointer-events: none;
+}
+.prayer-widget::after {
+  content: ''; position: absolute; inset: 0; opacity: 0.03; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L35.5 22H53L38.75 33L44.25 50L30 39L15.75 50L21.25 33L7 22H24.5L30 5Z' fill='%234A6C58' fill-opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+.prayer-widget-content { position: relative; z-index: 1; padding: 24px 20px; }
+.prayer-next-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--text-tertiary); margin-bottom: 4px;
+}
+.prayer-name { font-size: 28px; font-weight: 700; color: var(--green-500); line-height: 1.2; }
+.prayer-time {
+  font-size: 40px; font-weight: 800; font-variant-numeric: tabular-nums;
+  line-height: 1.2; margin: 2px 0 12px; letter-spacing: -1px;
+}
+.prayer-countdown {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(184,134,11,0.12); color: var(--warning);
+  padding: 6px 14px; border-radius: var(--radius-pill);
+  font-size: 13px; font-weight: 600;
+}
+.prayer-countdown svg { width: 14px; height: 14px; }
+.prayer-schedule-btn {
+  width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px; background: rgba(74,108,88,0.08); border: 1px solid rgba(74,108,88,0.15);
+  border-radius: 12px; font-size: 13px; font-weight: 600; color: var(--green-500);
+  cursor: pointer; transition: all 0.2s; font-family: var(--font-sans); position: relative;
+}
+.prayer-schedule-btn:hover { background: rgba(74,108,88,0.12); transform: translateY(-1px); }
+.prayer-schedule-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }

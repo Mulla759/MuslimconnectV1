@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F9F8F3">
+  <title>Organizations — MuslimConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/orgs.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img class="nav-logo" src="assets/logo.svg" alt="MuslimConnect logo">
+      <span class="nav-brand">MuslimConnect</span>
+    </div>
+    <div class="nav-center">
+      <a href="#" class="nav-link">Feed</a>
+      <a href="#" class="nav-link">Events</a>
+      <a href="#" class="nav-link active">Organizations</a>
+    </div>
+    <div class="nav-right">
+      <div class="user-avatar">A</div>
+    </div>
+  </nav>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <div class="main-content">
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+      <h1 class="page-title">Organizations</h1>
+      <p class="page-subtitle">Discover and follow campus organizations in your Muslim community</p>
+      <div class="stats-row">
+        <span><span class="stat-value">45</span> Organizations</span>
+        <span class="stat-sep">&middot;</span>
+        <span><span class="stat-value">2,400+</span> Members</span>
+        <span class="stat-sep">&middot;</span>
+        <span><span class="stat-value">120+</span> Events This Semester</span>
+      </div>
+    </section>
+
+    <!-- SEARCH & FILTER BAR -->
+    <div class="filter-bar">
+      <div class="search-wrap">
+        <span class="search-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search organizations...">
+      </div>
+      <div class="filter-pills" id="filterPills">
+        <button class="filter-pill active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="msa">MSA Chapters</button>
+        <button class="filter-pill" data-filter="dawah">Dawah</button>
+        <button class="filter-pill" data-filter="academic">Academic</button>
+        <button class="filter-pill" data-filter="cultural">Cultural</button>
+        <button class="filter-pill" data-filter="sports">Sports &amp; Fitness</button>
+        <button class="filter-pill" data-filter="service">Community Service</button>
+        <button class="filter-pill" data-filter="professional">Professional</button>
+      </div>
+    </div>
+
+    <!-- ORGANIZATIONS GRID -->
+    <div class="orgs-grid" id="orgsGrid">
+
+      <!-- 1. Muslim Student Association (MSA) -->
+      <div class="org-card" data-category="msa" data-name="Muslim Student Association">
+        <div class="card-cover" style="background: linear-gradient(135deg, #4A6C58, #4A6C58, #4A6C58);">
+          <div class="card-avatar" style="background: linear-gradient(135deg, #3D5A4A, #4A6C58);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 12h3v8h14v-8h3L12 3z"/><path d="M9 21v-6h6v6"/><path d="M12 3v4"/><circle cx="12" cy="2" r="1" fill="#FBBF24" stroke="none"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-name-row">
+            <span class="card-name">Muslim Student Association</span>
+            <svg class="verified-badge" viewBox="0 0 20 20"><path d="M10 0l2.4 3.3L16.2 2l.5 4.1 4 1-2.5 3.2L20 14l-3.8 1.5-.5 4.1-3.8-1.7L10 20l-2.4-2.1-3.8 1.7-.5-4.1L-.5 14l1.8-3.7L-1.2 7l4-1L3.3 2l3.8 1.3L10 0z" fill="#3B82F6"/><path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="category-pill cat-msa">MSA Chapter</span>
+          <p class="card-bio">The heart of Muslim student life on campus. Weekly halaqas, Friday prayers, community dinners, and interfaith events.</p>
+          <div class="card-stats">324 followers &middot; 12 events</div>
+          <div class="card-actions">
+            <button class="btn-follow">Follow</button>
+            <button class="btn-view">View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Al-Noor Cultural Society -->
+      <div class="org-card" data-category="cultural" data-name="Al-Noor Cultural Society">
+        <div class="card-cover" style="background: linear-gradient(135deg, #B8860B, #D4AF37, #FCD34D);">
+          <div class="card-avatar" style="background: linear-gradient(135deg, #B8941F, #D4AF37);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2 3-3 6-3 9s1 6 3 9"/><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"/><path d="M3 12h18"/><path d="M4.5 7h15"/><path d="M4.5 17h15"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-name-row">
+            <span class="card-name">Al-Noor Cultural Society</span>
+            <svg class="verified-badge" viewBox="0 0 20 20"><path d="M10 0l2.4 3.3L16.2 2l.5 4.1 4 1-2.5 3.2L20 14l-3.8 1.5-.5 4.1-3.8-1.7L10 20l-2.4-2.1-3.8 1.7-.5-4.1L-.5 14l1.8-3.7L-1.2 7l4-1L3.3 2l3.8 1.3L10 0z" fill="#3B82F6"/><path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="category-pill cat-cultural">Cultural</span>
+          <p class="card-bio">Celebrating the rich diversity of Muslim cultures through food festivals, art exhibitions, poetry nights, and heritage events.</p>
+          <div class="card-stats">186 followers &middot; 8 events</div>
+          <div class="card-actions">
+            <button class="btn-follow">Follow</button>
+            <button class="btn-view">View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Islamic Knowledge Circle -->
+      <div class="org-card" data-category="academic" data-name="Islamic Knowledge Circle">
+        <div class="card-cover" style="background: linear-gradient(135deg, #2563EB, #3B82F6, #60A5FA);">
+          <div class="card-avatar" style="background: linear-gradient(135deg, #1D4ED8, #3B82F6);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-name-row">
+            <span class="card-name">Islamic Knowledge Circle</span>
+          </div>
+          <span class="category-pill cat-academic">Academic</span>
+          <p class="card-bio">Deep-dive study sessions on Quran, Hadith, Fiqh, and Islamic history. Open to all knowledge levels and backgrounds.</p>
+          <div class="card-stats">142 followers &middot; 15 events</div>
+          <div class="card-actions">
+            <button class="btn-follow">Follow</button>
+            <button class="btn-view">View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Crescent Athletics -->
+      <div class="org-card" data-category="sports" data-name="Crescent Athletics">
+        <div class="card-cover" style="background: linear-gradient(135deg, #059669, #10B981, #34D399);">
+          <div class="card-avatar" style="background: linear-gradient(135deg, #047857, #10B981);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/><path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10"/><path d="M2 12h20"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-name-row">
+            <span class="card-name">Crescent Athletics</span>
+          </div>
+          <span class="category-pill cat-sports">Sports &amp; Fitness</span>
+          <p class="card-bio">Building brotherhood and sisterhood through sports. Soccer leagues, basketball tournaments, hiking trips, and fitness challenges.</p>
+          <div class="card-stats">98 followers &middot; 6 events</div>
+          <div class="card-actions">
+            <button class="btn-follow">Follow</button>
+            <button class="btn-view">View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Sisters of Light -->
+      <div class="org-card" data-category="service" data-name="Sisters of Light">
+        <div class="card-cover" style="background: linear-gradient(135deg, #7C3AED, #A78BFA, #C4B5FD);">
+          <div class="card-avatar" style="background: linear-gradient(135deg, #6D28D9, #8B5CF6);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-name-row">
+            <span class="card-name">Sisters of Light</span>
+            <svg class="verified-badge" viewBox="0 0 20 20"><path d="M10 0l2.4 3.3L16.2 2l.5 4.1 4 1-2.5 3.2L20 14l-3.8 1.5-.5 4.1-3.8-1.7L10 20l-2.4-2.1-3.8 1.7-.5-4.1L-.5 14l1.8-3.7L-1.2 7l4-1L3.3 2l3.8 1.3L10 0z" fill="#3B82F6"/><path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="category-pill cat-service">Community Service</span>
+          <p class="card-bio">Empowering Muslim women through mentorship, community service, food drives, and outreach programs across the city.</p>
+          <div class="card-stats">267 followers &middot; 10 events</div>
+          <div class="card-actions">
+            <button class="btn-follow">Follow</button>
+            <button class="btn-view">View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Muslim Professionals Network -->
+      <div class="org-card" data-category="professional" data-name="Muslim Professionals Network">
+        <div class="card-cover" style="background: linear-gradient(135deg, #DC2626, #EF4444, #FCA5A5);">
+          <div class="card-avatar" style="background: linear-gradient(135deg, #B91C1C, #EF4444);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-name-row">
+            <span class="card-name">Muslim Professionals Network</span>
+          </div>
+          <span class="category-pill cat-professional">Professional</span>
+          <p class="card-bio">Career workshops, resume reviews, networking mixers, and industry panels connecting Muslim students with professionals.</p>
+          <div class="card-stats">189 followers &middot; 4 events</div>
+          <div class="card-actions">
+            <button class="btn-follow">Follow</button>
+            <button class="btn-view">View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Quran Study Group -->
+      <div class="org-card" data-category="academic" data-name="Quran Study Group">
+        <div class="card-cover" style="background: linear-gradient(135deg, #2F4838, #3D5A4A, #4A6C58);">
+          <div class="card-avatar" style="background: linear-gradient(135deg, #2F4838, #4A6C58);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-name-row">
+            <span class="card-name">Quran Study Group</span>
+          </div>
+          <span class="category-pill cat-academic">Academic</span>
+          <p class="card-bio">Weekly Quran recitation, tajweed practice, tafseer discussions, and memorization circles for all skill levels.</p>
+          <div class="card-stats">156 followers &middot; 20 events</div>
+          <div class="card-actions">
+            <button class="btn-follow">Follow</button>
+            <button class="btn-view">View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Dawah Outreach Team -->
+      <div class="org-card" data-category="dawah" data-name="Dawah Outreach Team">
+        <div class="card-cover" style="background: linear-gradient(135deg, #0284C7, #0EA5E9, #38BDF8);">
+          <div class="card-avatar" style="background: linear-gradient(135deg, #0369A1, #0EA5E9);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h8"/><path d="M8 14h4"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-name-row">
+            <span class="card-name">Dawah Outreach Team</span>
+            <svg class="verified-badge" viewBox="0 0 20 20"><path d="M10 0l2.4 3.3L16.2 2l.5 4.1 4 1-2.5 3.2L20 14l-3.8 1.5-.5 4.1-3.8-1.7L10 20l-2.4-2.1-3.8 1.7-.5-4.1L-.5 14l1.8-3.7L-1.2 7l4-1L3.3 2l3.8 1.3L10 0z" fill="#3B82F6"/><path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="category-pill cat-dawah">Dawah</span>
+          <p class="card-bio">Sharing Islam with compassion and clarity. Tabling events, informational booths, interfaith dialogues, and new Muslim support.</p>
+          <div class="card-stats">211 followers &middot; 9 events</div>
+          <div class="card-actions">
+            <button class="btn-follow">Follow</button>
+            <button class="btn-view">View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Halal Foodies Club -->
+      <div class="org-card" data-category="cultural" data-name="Halal Foodies Club">
+        <div class="card-cover" style="background: linear-gradient(135deg, #B8941F, #D4AF37, #FCD34D);">
+          <div class="card-avatar" style="background: linear-gradient(135deg, #92750C, #D4AF37);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-name-row">
+            <span class="card-name">Halal Foodies Club</span>
+          </div>
+          <span class="category-pill cat-cultural">Cultural</span>
+          <p class="card-bio">Exploring the best halal food spots, hosting potlucks, cooking workshops, and restaurant review nights around campus.</p>
+          <div class="card-stats">73 followers &middot; 3 events</div>
+          <div class="card-actions">
+            <button class="btn-follow">Follow</button>
+            <button class="btn-view">View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Results Message -->
+      <div class="no-results" id="noResults">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px;opacity:0.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <p>No organizations found matching your search.</p>
+      </div>
+    </div>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+      <div class="cta-card">
+        <h2 class="cta-title">Can't find your organization?</h2>
+        <p class="cta-text">Register your campus organization on MuslimConnect and start building your community today.</p>
+        <button class="btn-register">Register Your Organization</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script src="js/theme-manager.js" defer></script>
+  <script src="js/orgs-filter.js" defer></script>
+</body>
+</html>
