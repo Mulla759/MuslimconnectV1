@@ -30,7 +30,7 @@ This repository now contains:
 
 ```bash
 # 1) clone and enter
-git clone (https://github.com/Mulla759/MuslimconnectV1.git)
+git clone https://github.com/Mulla759/MuslimconnectV1.git
 cd MuslimconnectV1
 
 # 2) create env
