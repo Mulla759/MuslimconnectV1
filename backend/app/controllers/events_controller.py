@@ -1,10 +1,7 @@
-"""Controller functions that shape event API responses."""
-from app.models.event import EventSummary, UpcomingEventsResponse
-from app.services.event_service import fetch_upcoming_events
+from app.services.event_service import get_upcoming_events
+from app.models.event import EventItem, EventsResponse
 
-
-def list_upcoming_events(limit: int) -> UpcomingEventsResponse:
-    """Translate service records to API response models."""
-    records = fetch_upcoming_events(limit=limit)
-    items = [EventSummary.model_validate(record) for record in records]
-    return UpcomingEventsResponse(items=items, count=len(items))
+def upcoming_events_controller(limit: int) -> EventsResponse:
+    raw = get_upcoming_events(limit)
+    items = [EventItem(**row) for row in raw]
+    return EventsResponse(items=items, count=len(items))
