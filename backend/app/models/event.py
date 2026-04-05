@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+
 
 class EventItem(BaseModel):
     id: int
@@ -7,11 +7,12 @@ class EventItem(BaseModel):
     organization_name: str
     organization_verified: bool
     title: str
-    description: Optional[str] = None
+    description: str | None = None
     location: str
     start_datetime: str
-    end_datetime: Optional[str] = None
+    end_datetime: str | None = None
     status: str
+
 
 class EventsResponse(BaseModel):
     items: list[EventItem]

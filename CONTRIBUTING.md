@@ -7,23 +7,41 @@ Use this guide so contributions stay predictable and reviewable.
 
 1. Fork the repository.
 2. Clone your fork.
-3. Create and activate a Python virtual environment.
+3. Create a Python virtual environment.
 4. Install backend dependencies.
-5. Copy `.env.example` to `.env` and adjust values if needed.
-6. Run backend tests and lint checks before opening a PR.
+5. Copy `.env.example` to `.env`.
+6. Use the root dev launcher when you need frontend and backend running together.
+7. Run backend tests and lint checks before opening a PR.
 
 ## 2. Local Setup Commands
 
 ```bash
 # from repo root
 python3 -m venv .venv
-source .venv/bin/activate
-pip install -r backend/requirements.txt
+.venv/bin/pip install -r backend/requirements.txt
 cp .env.example .env
 
+# start frontend + backend together
+python3 scripts/dev.py
+
 # quality gates
-ruff check backend/app backend/tests
-pytest backend
+.venv/bin/ruff check backend/app backend/tests
+.venv/bin/pytest backend
+```
+
+The single supported local integration workflow is `python3 scripts/dev.py` from the repo root. Do not require contributors to open separate frontend and backend terminals for normal local testing.
+
+If default ports are unavailable on a machine, either update `.env`:
+
+```bash
+APP_PORT=8000
+FRONTEND_PORT=5500
+```
+
+or override them for a single run:
+
+```bash
+python3 scripts/dev.py --frontend-port 5600 --backend-port 8100
 ```
 
 ## 3. Branching Strategy

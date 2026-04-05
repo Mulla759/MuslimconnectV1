@@ -2,70 +2,112 @@
 
 MuslimConnect is a campus-community platform for Muslim students to discover organizations, view upcoming events, and stay aligned on prayer/community life in one place.
 
-This repository now contains:
-- A locked frontend prototype (`frontend/`) with production UI direction.
-- A backend starter architecture (`backend/`) that backend engineers can immediately extend.
-- Shared API contracts (`shared/contracts/`) so frontend expectations are explicit.
+This repository contains:
+- A static frontend prototype in `frontend/`
+- A FastAPI backend scaffold in `backend/`
+- Shared frontend/backend API contracts in `shared/contracts/`
 
 ## Tech Stack
 
 ### Frontend
-- HTML/CSS/JavaScript (multi-page static prototype)
-- Google Fonts + Phosphor icons
-- Tailwind CDN on marketing page only (`web-landing.html`)
+- HTML/CSS/JavaScript
+- Multi-page static prototype
 
-### Backend Scaffold
+### Backend
 - Python 3.12+
 - FastAPI + Uvicorn
-- SQLite (seeded local DB)
+- SQLite
 - Pytest + Ruff
 
 ## Prerequisites
 
 - Python 3.12+
-- `pip`
 - Git
 
-## Installation (Monorepo)
+## Quick Start
 
 ```bash
-# 1) clone and enter
 git clone https://github.com/Mulla759/MuslimconnectV1.git
 cd MuslimconnectV1
-
-# 2) create env
 python3 -m venv .venv
-source .venv/bin/activate
-
-# 3) install backend deps
-pip install -r backend/requirements.txt
-
-# 4) configure env vars
+.venv/bin/pip install -r backend/requirements.txt
 cp .env.example .env
+python3 scripts/dev.py
 ```
 
-## Run Locally (Frontend + Backend Together)
+That single `python3 scripts/dev.py` command starts both services from the repo root:
+- Frontend static server
+- Backend API server with reload enabled
 
-Use two terminals from repo root.
+When startup succeeds, the launcher prints the exact URLs to use:
+- Frontend landing page: `http://127.0.0.1:5500/web-landing.html`
+- Frontend dashboard: `http://127.0.0.1:5500/web-dashboard.html`
+- Backend health: `http://127.0.0.1:8000/api/v1/health`
+- Backend events: `http://127.0.0.1:8000/api/v1/events/upcoming`
+- Backend docs: `http://127.0.0.1:8000/docs`
 
-### Terminal A: Backend API
+Stop both servers with `Ctrl+C`.
+
+## One-Command Dev Workflow
+
+The canonical local workflow is:
 
 ```bash
-source .venv/bin/activate
-uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --reload
+python3 scripts/dev.py
 ```
 
-- Health check: `http://127.0.0.1:8000/api/v1/health`
-- Example endpoint: `http://127.0.0.1:8000/api/v1/events/upcoming`
+The launcher:
+- Starts the frontend and backend together
+- Uses `.venv/bin/python` automatically when that virtual environment exists
+- Keeps logs in one terminal
+- Exits with a clear error if a chosen port is already in use
+- Does not auto-pick random ports unless you explicitly change them
 
-### Terminal B: Frontend Static Pages
+This is the workflow to share with contributors who need frontend and backend running together for backend testing.
+
+## Choosing Hosts and Ports
+
+The defaults are:
+- Backend: `127.0.0.1:8000`
+- Frontend: `127.0.0.1:5500`
+
+If those ports are not available on a contributor machine, keep the same one-command workflow and change the values once in `.env`:
 
 ```bash
-python3 -m http.server 5500 --directory frontend
+APP_HOST=127.0.0.1
+APP_PORT=8000
+FRONTEND_HOST=127.0.0.1
+FRONTEND_PORT=5500
 ```
 
-- Landing: `http://127.0.0.1:5500/web-landing.html`
-- Dashboard: `http://127.0.0.1:5500/web-dashboard.html`
+You can also override them directly at launch time:
+
+```bash
+python3 scripts/dev.py --frontend-port 5600 --backend-port 8100
+```
+
+If someone needs the servers accessible from other devices on the same network, bind to all interfaces explicitly:
+
+```bash
+python3 scripts/dev.py --frontend-host 0.0.0.0 --backend-host 0.0.0.0
+```
+
+Then use that machine's local IP address instead of `127.0.0.1` when testing from another device.
+
+## Backend Testing While Frontend Is Running
+
+The frontend is still a static prototype, so it does not yet call the live API directly. Running both servers together is still useful because it gives contributors a single local session for:
+- Visual frontend review
+- Manual backend endpoint testing
+- Swagger inspection at `/docs`
+- Contract verification against `shared/contracts/`
+
+Useful backend checks while the dev launcher is running:
+
+```bash
+curl http://127.0.0.1:8000/api/v1/health
+curl "http://127.0.0.1:8000/api/v1/events/upcoming?limit=5"
+```
 
 ## Backend Architecture (Scaffold)
 

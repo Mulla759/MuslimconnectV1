@@ -1,9 +1,11 @@
 from app.db.connection import get_connection
 
+
 def fetch_upcoming_events(limit: int) -> list[dict]:
     conn = get_connection()
     try:
-        cursor = conn.execute("""
+        cursor = conn.execute(
+            """
             SELECT
                 e.id,
                 e.organization_id,
@@ -21,7 +23,9 @@ def fetch_upcoming_events(limit: int) -> list[dict]:
             AND e.start_datetime >= datetime('now')
             ORDER BY e.start_datetime ASC
             LIMIT ?
-        """, (limit,))
+            """,
+            (limit,),
+        )
         return [dict(row) for row in cursor.fetchall()]
     finally:
         conn.close()
