@@ -1,9 +1,11 @@
 import hashlib
 import hmac
 import os
-from jose import jwt
 from datetime import datetime, timedelta
-from app.repositories.user_repository import get_user_by_email, create_user
+
+from jose import jwt
+
+from app.repositories.user_repository import create_user, get_user_by_email
 
 SECRET_KEY = "muslimconnect-secret-key-change-in-production"
 ALGORITHM = "HS256"

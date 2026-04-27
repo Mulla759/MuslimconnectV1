@@ -1,12 +1,13 @@
+
 from pydantic import BaseModel
-from typing import Optional
+
 
 class RegisterRequest(BaseModel):
     first_name: str
     last_name: str
     email: str
     password: str
-    campus: Optional[str] = None
+    campus: str | None = None
 
 class LoginRequest(BaseModel):
     email: str

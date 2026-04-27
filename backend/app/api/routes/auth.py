@@ -1,6 +1,7 @@
 from fastapi import APIRouter
-from app.models.user import RegisterRequest, LoginRequest, AuthResponse
-from app.controllers.auth_controller import register_controller, login_controller
+
+from app.controllers.auth_controller import login_controller, register_controller
+from app.models.user import AuthResponse, LoginRequest, RegisterRequest
 
 router = APIRouter()
 

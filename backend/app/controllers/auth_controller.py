@@ -1,6 +1,8 @@
 from fastapi import HTTPException
-from app.services.auth_service import register_user, login_user
-from app.models.user import RegisterRequest, LoginRequest, AuthResponse
+
+from app.models.user import AuthResponse, LoginRequest, RegisterRequest
+from app.services.auth_service import login_user, register_user
+
 
 def register_controller(data: RegisterRequest) -> AuthResponse:
     result, error = register_user(

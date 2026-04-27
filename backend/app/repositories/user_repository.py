@@ -1,5 +1,6 @@
 from app.db.connection import get_connection
 
+
 def get_user_by_email(email: str):
     conn = get_connection()
     try:

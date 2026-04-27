@@ -8,7 +8,7 @@ function formatDate(datetimeStr) {
 
 function buildEventCard(event) {
   return `
-    <article class="event-card" onclick="window.location.href='web-event-detail.html'">
+    <article class="event-card" onclick="window.location.href='web-event-detail.html?id=${event.id}'">
       <div class="event-flyer">
         <div class="event-flyer-bg flyer-gradient-1">
           <div class="flyer-content">
