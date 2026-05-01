@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organization — MuslimConnect</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--green:#4A6C58;--dark:#262522;--cream:#F9F8F3;--beige:#EBE9E1;--border:#DCD9D0;--text-primary:#262522;--text-secondary:#6B665F;--text-tertiary:#A09A90;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-primary);}
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:64px;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;}
+.nav-center{display:flex;gap:8px;}
+.nav-link{text-decoration:none;color:var(--text-secondary);font-size:14px;font-weight:500;padding:6px 16px;border-radius:20px;transition:all 0.2s;}
+.nav-link:hover,.nav-link.active{background:var(--beige);color:var(--dark);}
+.user-avatar{width:36px;height:36px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:14px;cursor:pointer;}
+/* HERO */
+.org-hero{height:240px;background:linear-gradient(135deg,#1a2e25,#4A6C58);position:relative;display:flex;align-items:flex-end;padding:0 40px 0;}
+.org-hero-overlay{position:absolute;inset:0;opacity:0.1;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:20px 20px;}
+.hero-content{position:relative;z-index:2;display:flex;align-items:flex-end;gap:24px;padding-bottom:0;transform:translateY(40px);}
+.org-avatar-lg{width:96px;height:96px;background:#fff;border-radius:20px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--green);border:4px solid var(--cream);flex-shrink:0;}
+.hero-info{padding-bottom:8px;}
+.org-name-lg{font-family:'Playfair Display',serif;font-size:28px;color:#fff;font-weight:700;}
+.org-type-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:rgba(255,255,255,0.2);border-radius:20px;font-size:12px;color:#fff;margin-top:6px;}
+/* MAIN */
+.org-layout{max-width:1200px;margin:0 auto;padding:64px 40px 40px;display:grid;grid-template-columns:1fr 340px;gap:32px;}
+.section-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px;}
+.s-head{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.s-head h3{font-family:'Playfair Display',serif;font-size:18px;}
+.s-body{padding:22px;}
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
+.stat{background:#fff;padding:18px;text-align:center;}
+.stat-n{font-size:22px;font-weight:700;font-family:'Playfair Display',serif;}
+.stat-l{font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.05em;margin-top:3px;}
+/* EVENTS */
+.org-event-item{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--beige);cursor:pointer;transition:background 0.15s;}
+.org-event-item:last-child{border-bottom:none;}
+.org-event-item:hover{background:var(--cream);margin:0 -22px;padding:14px 22px;}
+.event-date-box{width:48px;height:52px;background:var(--beige);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;}
+.edb-month{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green);}
+.edb-day{font-size:20px;font-weight:700;color:var(--dark);}
+.event-info{flex:1;}
+.event-info h4{font-size:14px;font-weight:600;}
+.event-info p{font-size:12px;color:var(--text-tertiary);margin-top:2px;}
+.event-info-row2{display:flex;align-items:center;gap:8px;margin-top:6px;}
+.ev-badge{font-size:11px;padding:2px 8px;border-radius:8px;}
+.ev-open{background:#E8F5EE;color:#4A6C58;}
+/* SIDEBAR */
+.sidebar-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:18px;}
+.sc-head{padding:16px 20px;border-bottom:1px solid var(--border);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-tertiary);}
+.sc-body{padding:18px 20px;}
+.follow-btn{width:100%;padding:12px;background:var(--dark);color:#fff;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background 0.2s;margin-bottom:10px;}
+.follow-btn:hover{background:var(--green);}
+.join-btn{width:100%;padding:12px;background:#fff;color:var(--dark);border:2px solid var(--dark);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;}
+.join-btn:hover{background:var(--beige);}
+.info-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--beige);}
+.info-row:last-child{border-bottom:none;}
+.info-icon{color:var(--text-tertiary);font-size:16px;margin-top:1px;}
+.info-text{font-size:13px;color:var(--text-secondary);}
+.info-label{font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:2px;}
+/* MODAL */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;display:none;align-items:center;justify-content:center;}
+.modal-backdrop.open{display:flex;}
+.modal{background:#fff;border-radius:20px;width:520px;max-width:95vw;max-height:85vh;overflow-y:auto;}
+.modal-head{padding:24px 28px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.modal-head h2{font-family:'Playfair Display',serif;font-size:22px;}
+.modal-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-tertiary);}
+.modal-body{padding:28px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:6px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;background:var(--cream);transition:border 0.2s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green);background:#fff;}
+.form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.checkbox-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--beige);}
+.checkbox-row:last-child{border-bottom:none;}
+.checkbox-row input{width:16px;height:16px;accent-color:var(--green);}
+.checkbox-row label{font-size:13px;color:var(--text-primary);}
+.submit-btn{width:100%;padding:14px;background:var(--dark);color:#fff;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;margin-top:20px;transition:background 0.2s;}
+.submit-btn:hover{background:var(--green);}
+.success-state{text-align:center;padding:20px;}
+.success-icon{width:64px;height:64px;background:#E8F5EE;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px;color:var(--green);}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div style="width:32px;height:32px;background:#262522;border-radius:50%;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-hands-clapping" style="color:#fff;font-size:16px;"></i></div>
+    <span class="nav-brand">MuslimConnect</span>
+  </div>
+  <div class="nav-center">
+    <a href="web-dashboard.html" class="nav-link">Feed</a>
+    <a href="web-events.html" class="nav-link">Events</a>
+    <a href="web-orgs.html" class="nav-link active">Organizations</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="position:relative;"><i class="ph-bold ph-bell" style="font-size:20px;cursor:pointer;color:#6B665F;"></i></div>
+    <div class="user-avatar" onclick="location.href='web-profile.html'">AJ</div>
+  </div>
+</nav>
+
+<div class="org-hero">
+  <div class="org-hero-overlay"></div>
+  <div class="hero-content">
+    <div class="org-avatar-lg">M</div>
+    <div class="hero-info">
+      <div class="org-name-lg">Muslim Student Association</div>
+      <div style="display:flex;gap:8px;margin-top:8px;">
+        <span class="org-type-badge"><i class="ph-fill ph-check-circle"></i> Verified</span>
+        <span class="org-type-badge">MSA Chapter</span>
+        <span class="org-type-badge">University of Washington</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="org-layout">
+  <main>
+    <div class="section-card">
+      <div class="stats-row">
+        <div class="stat"><div class="stat-n" style="color:#4A6C58;">1,240</div><div class="stat-l">Followers</div></div>
+        <div class="stat"><div class="stat-n">15</div><div class="stat-l">Events/Year</div></div>
+        <div class="stat"><div class="stat-n">8</div><div class="stat-l">Officers</div></div>
+        <div class="stat"><div class="stat-n">2018</div><div class="stat-l">Founded</div></div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="s-head"><h3>About</h3></div>
+      <div class="s-body">
+        <p style="font-size:14px;color:#6B665F;line-height:1.8;">The Muslim Student Association at the University of Washington is the heart of Muslim student life on campus. We host weekly halaqas, Friday Jummah prayers, community iftars during Ramadan, and large-scale events like the Annual MSA Gala.</p>
+        <p style="font-size:14px;color:#6B665F;line-height:1.8;margin-top:12px;">Our mission is to foster a welcoming, spiritually enriching, and socially active Muslim community that serves both Muslim and non-Muslim students.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+          <span style="padding:5px 12px;background:#E8F5EE;color:#4A6C58;border-radius:12px;font-size:12px;font-weight:600;">Halaqa</span>
+          <span style="padding:5px 12px;background:#EDE9FE;color:#7C3AED;border-radius:12px;font-size:12px;font-weight:600;">Jummah</span>
+          <span style="padding:5px 12px;background:#FEF3C7;color:#D97706;border-radius:12px;font-size:12px;font-weight:600;">Community</span>
+          <span style="padding:5px 12px;background:#FCE7F3;color:#DB2777;border-radius:12px;font-size:12px;font-weight:600;">Social Events</span>
+          <span style="padding:5px 12px;background:#E8F5EE;color:#4A6C58;border-radius:12px;font-size:12px;font-weight:600;">Dawah</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="s-head"><h3>Upcoming Events</h3><a href="web-events.html" style="font-size:13px;color:#4A6C58;font-weight:600;text-decoration:none;">See all</a></div>
+      <div class="s-body">
+        <div class="org-event-item">
+          <div class="event-date-box"><div class="edb-month">Mar</div><div class="edb-day">7</div></div>
+          <div class="event-info"><h4>Annual MSA Gala Night</h4><p><i class="ph-fill ph-map-pin"></i> University Ballroom · 12:30 PM</p><div class="event-info-row2"><span class="ev-badge ev-open">Open RSVP</span><span style="font-size:12px;color:#6B665F;">247 attending</span></div></div>
+        </div>
+        <div class="org-event-item">
+          <div class="event-date-box"><div class="edb-month">Mar</div><div class="edb-day">13</div></div>
+          <div class="event-info"><h4>Friday Jummah Prayer</h4><p><i class="ph-fill ph-map-pin"></i> HUB Ballroom · 1:15 PM</p><div class="event-info-row2"><span class="ev-badge ev-open">Recurring</span></div></div>
+        </div>
+        <div class="org-event-item">
+          <div class="event-date-box"><div class="edb-month">Mar</div><div class="edb-day">19</div></div>
+          <div class="event-info"><h4>Ramadan Iftar Dinner</h4><p><i class="ph-fill ph-map-pin"></i> HUB East Ballroom · 6:00 PM</p><div class="event-info-row2"><span class="ev-badge ev-open">Open RSVP</span><span style="font-size:12px;color:#6B665F;">183 attending</span></div></div>
+        </div>
+        <div class="org-event-item">
+          <div class="event-date-box"><div class="edb-month">Mar</div><div class="edb-day">26</div></div>
+          <div class="event-info"><h4>MSA Weekly Halaqa</h4><p><i class="ph-fill ph-map-pin"></i> Smith Hall 305 · 7:00 PM</p><div class="event-info-row2"><span class="ev-badge ev-open">Recurring</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="s-head"><h3>Officers & Leadership</h3></div>
+      <div class="s-body">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+          
+          <div style="text-align:center;padding:16px;border:1px solid var(--border);border-radius:12px;">
+            <div style="width:44px;height:44px;background:linear-gradient(135deg,#4A6C58,#2F4838);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;margin:0 auto 10px;">FA</div>
+            <div style="font-size:14px;font-weight:600;">Fatima Al-Hassan</div>
+            <div style="font-size:12px;color:#A09A90;margin-top:2px;">President</div>
+          </div>
+          <div style="text-align:center;padding:16px;border:1px solid var(--border);border-radius:12px;">
+            <div style="width:44px;height:44px;background:linear-gradient(135deg,#4A6C58,#2F4838);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;margin:0 auto 10px;">OK</div>
+            <div style="font-size:14px;font-weight:600;">Omar Khalid</div>
+            <div style="font-size:12px;color:#A09A90;margin-top:2px;">Vice President</div>
+          </div>
+          <div style="text-align:center;padding:16px;border:1px solid var(--border);border-radius:12px;">
+            <div style="width:44px;height:44px;background:linear-gradient(135deg,#4A6C58,#2F4838);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;margin:0 auto 10px;">YN</div>
+            <div style="font-size:14px;font-weight:600;">Yasmin Noor</div>
+            <div style="font-size:12px;color:#A09A90;margin-top:2px;">Secretary</div>
+          </div>
+          <div style="text-align:center;padding:16px;border:1px solid var(--border);border-radius:12px;">
+            <div style="width:44px;height:44px;background:linear-gradient(135deg,#4A6C58,#2F4838);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;margin:0 auto 10px;">IS</div>
+            <div style="font-size:14px;font-weight:600;">Ibrahim Said</div>
+            <div style="font-size:12px;color:#A09A90;margin-top:2px;">Treasurer</div>
+          </div>
+          <div style="text-align:center;padding:16px;border:1px solid var(--border);border-radius:12px;">
+            <div style="width:44px;height:44px;background:linear-gradient(135deg,#4A6C58,#2F4838);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;margin:0 auto 10px;">KO</div>
+            <div style="font-size:14px;font-weight:600;">Khadija Omar</div>
+            <div style="font-size:12px;color:#A09A90;margin-top:2px;">Events Lead</div>
+          </div>
+          <div style="text-align:center;padding:16px;border:1px solid var(--border);border-radius:12px;">
+            <div style="width:44px;height:44px;background:linear-gradient(135deg,#4A6C58,#2F4838);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;margin:0 auto 10px;">AR</div>
+            <div style="font-size:14px;font-weight:600;">Ali Rahman</div>
+            <div style="font-size:12px;color:#A09A90;margin-top:2px;">Dawah Lead</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside>
+    <div class="sidebar-card">
+      <div class="sc-body">
+        <button class="follow-btn" id="followBtn" onclick="toggleFollow()">Follow Organization</button>
+        <button class="join-btn" onclick="openJoinModal()">Apply for Membership</button>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sc-head">Contact & Info</div>
+      <div class="sc-body">
+        <div class="info-row"><i class="ph-bold ph-envelope info-icon"></i><div><div class="info-label">Email</div><div class="info-text">msa@uw.edu</div></div></div>
+        <div class="info-row"><i class="ph-bold ph-instagram-logo info-icon"></i><div><div class="info-label">Instagram</div><div class="info-text">@uwmsa</div></div></div>
+        <div class="info-row"><i class="ph-bold ph-map-pin info-icon"></i><div><div class="info-label">Campus</div><div class="info-text">University of Washington, Seattle</div></div></div>
+        <div class="info-row"><i class="ph-bold ph-clock info-icon"></i><div><div class="info-label">Meeting Time</div><div class="info-text">Every Wednesday · 7:00 PM<br>Smith Hall 305</div></div></div>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sc-head">Similar Organizations</div>
+      <div class="sc-body" style="padding:12px 18px;">
+        
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--beige);cursor:pointer;" onclick="location.href='web-org-detail.html'">
+          <div style="width:36px;height:36px;background:#7C3AED22;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#7C3AED;font-weight:700;font-size:14px;">I</div>
+          <div><div style="font-size:13px;font-weight:600;">Islamic Knowledge Circle</div><div style="font-size:11px;color:#A09A90;">Academic</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--beige);cursor:pointer;" onclick="location.href='web-org-detail.html'">
+          <div style="width:36px;height:36px;background:#4A6C5822;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#4A6C58;font-weight:700;font-size:14px;">A</div>
+          <div><div style="font-size:13px;font-weight:600;">Al-Noor Foundation</div><div style="font-size:11px;color:#A09A90;">Community Service</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--beige);cursor:pointer;" onclick="location.href='web-org-detail.html'">
+          <div style="width:36px;height:36px;background:#F59E0B22;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#F59E0B;font-weight:700;font-size:14px;">D</div>
+          <div><div style="font-size:13px;font-weight:600;">Dawah Outreach Team</div><div style="font-size:11px;color:#A09A90;">Dawah</div></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- JOIN MODAL -->
+<div class="modal-backdrop" id="joinModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Apply for Membership</h2>
+      <button class="modal-close" onclick="closeJoinModal()"><i class="ph-bold ph-x"></i></button>
+    </div>
+    <div class="modal-body" id="joinForm">
+      <div style="display:flex;align-items:center;gap:12px;padding:14px;background:#F0F7F3;border-radius:10px;margin-bottom:20px;">
+        <div style="width:40px;height:40px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:#4A6C58;font-size:18px;">M</div>
+        <div><div style="font-weight:700;font-size:14px;">Muslim Student Association</div><div style="font-size:12px;color:#6B665F;">University of Washington</div></div>
+      </div>
+      <div class="form-grid-2">
+        <div class="form-group"><label>First Name</label><input type="text" value="Abdullahi"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" value="Jama"></div>
+      </div>
+      <div class="form-group"><label>Campus Email</label><input type="email" value="abdi@uw.edu"></div>
+      <div class="form-group"><label>Year of Study</label><select><option>Freshman</option><option>Sophomore</option><option selected>Junior</option><option>Senior</option><option>Graduate</option></select></div>
+      <div class="form-group"><label>Major</label><input type="text" placeholder="e.g. Computer Science"></div>
+      <div class="form-group">
+        <label>Why do you want to join MSA?</label>
+        <textarea rows="3" placeholder="Tell us a bit about yourself and why you'd like to join..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>How did you hear about us?</label>
+        <select><option>MuslimConnect App</option><option>Friend / Word of Mouth</option><option>Instagram</option><option>Campus Event</option><option>Other</option></select>
+      </div>
+      <div class="form-group">
+        <label style="margin-bottom:10px;display:block;">Areas of Interest (select all that apply)</label>
+        
+        <div class="checkbox-row"><input type="checkbox" id="Event Planning"><label for="Event Planning">Event Planning</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="Religious Education"><label for="Religious Education">Religious Education</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="Community Outreach"><label for="Community Outreach">Community Outreach</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="Fundraising"><label for="Fundraising">Fundraising</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="Social Media"><label for="Social Media">Social Media</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="Volunteering"><label for="Volunteering">Volunteering</label></div>
+      </div>
+      <button class="submit-btn" onclick="submitJoin()">Submit Application</button>
+    </div>
+    <div class="modal-body" id="joinSuccess" style="display:none;">
+      <div class="success-state">
+        <div class="success-icon"><i class="ph-fill ph-check-circle"></i></div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:8px;">Application Submitted!</h3>
+        <p style="color:#6B665F;font-size:14px;line-height:1.6;">Your membership application for <strong>Muslim Student Association</strong> has been received. You'll get a confirmation email at abdi@uw.edu within 2-3 business days.</p>
+        <button onclick="closeJoinModal()" style="margin-top:20px;padding:10px 24px;background:#262522;color:#fff;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleFollow(){const btn=document.getElementById('followBtn');const following=btn.dataset.following==='1';btn.dataset.following=following?'0':'1';btn.textContent=following?'Follow Organization':'Following ✓';btn.style.background=following?'#262522':'#4A6C58';}
+function openJoinModal(){document.getElementById('joinModal').classList.add('open');}
+function closeJoinModal(){document.getElementById('joinModal').classList.remove('open');document.getElementById('joinForm').style.display='';document.getElementById('joinSuccess').style.display='none';}
+function submitJoin(){document.getElementById('joinForm').style.display='none';document.getElementById('joinSuccess').style.display='';}
+</script>
+</body></html>
