@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events - MuslimConnect</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--green:#4A6C58;--dark:#262522;--cream:#F9F8F3;--beige:#EBE9E1;--border:#DCD9D0;--text-primary:#262522;--text-secondary:#6B665F;--text-tertiary:#A09A90;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-primary);min-height:100vh;}
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:64px;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;}
+.nav-center{display:flex;gap:8px;}
+.nav-link{text-decoration:none;color:var(--text-secondary);font-size:14px;font-weight:500;padding:6px 16px;border-radius:20px;transition:all 0.2s;}
+.nav-link:hover,.nav-link.active{background:var(--beige);color:var(--dark);}
+.user-avatar{width:36px;height:36px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:14px;cursor:pointer;}
+.page-wrap{max-width:1200px;margin:0 auto;padding:32px 40px;}
+.page-header h1{font-family:'Playfair Display',serif;font-size:36px;}
+.page-header p{color:var(--text-secondary);margin-top:6px;}
+.filters-bar{display:flex;gap:10px;margin:24px 0;flex-wrap:wrap;align-items:center;}
+.filter-chip{padding:8px 18px;border:1px solid var(--border);border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;background:#fff;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+.filter-chip:hover,.filter-chip.active{background:var(--dark);color:#fff;border-color:var(--dark);}
+.search-box{margin-left:auto;display:flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid var(--border);border-radius:20px;background:#fff;}
+.search-box input{border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:14px;width:180px;background:transparent;}
+.events-layout{display:grid;grid-template-columns:1fr 320px;gap:28px;}
+.events-list{display:flex;flex-direction:column;gap:20px;}
+.event-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all 0.2s;}
+.event-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.08);}
+.event-flyer{height:200px;position:relative;display:flex;align-items:flex-end;padding:20px;}
+.flyer-dot-bg{position:absolute;inset:0;opacity:0.12;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:18px 18px;}
+.event-badge{position:absolute;top:14px;right:14px;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;}
+.badge-open{background:#4A6C58;color:#fff;}
+.badge-soon{background:#F59E0B;color:#fff;}
+.flyer-content{position:relative;z-index:2;}
+.flyer-org{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:4px;}
+.flyer-title{font-family:'Playfair Display',serif;font-size:20px;color:#fff;line-height:1.2;}
+.flyer-meta{font-size:12px;color:rgba(255,255,255,0.7);margin-top:6px;display:flex;align-items:center;gap:6px;}
+.event-body{padding:18px;}
+.event-info-row{display:flex;justify-content:space-between;align-items:flex-start;}
+.event-name{font-size:15px;font-weight:700;}
+.event-when{font-size:13px;color:var(--text-secondary);margin-top:3px;}
+.rsvp-count{text-align:right;font-size:12px;color:var(--text-secondary);}
+.rsvp-num{font-size:20px;font-weight:700;color:var(--dark);}
+.event-desc{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-top:10px;}
+.event-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+.tag{padding:3px 10px;background:var(--beige);border-radius:12px;font-size:12px;color:var(--text-secondary);}
+.event-actions{display:flex;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--beige);}
+.btn-rsvp{flex:1;padding:10px;background:var(--dark);color:#fff;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s;}
+.btn-rsvp:hover{background:var(--green);}
+.btn-icon{padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-size:16px;}
+/* SIDEBAR */
+.events-sidebar{display:flex;flex-direction:column;gap:18px;}
+.s-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.s-header{padding:14px 18px;border-bottom:1px solid var(--border);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-tertiary);}
+.mini-ev{padding:12px 18px;border-bottom:1px solid var(--beige);cursor:pointer;}
+.mini-ev:last-child{border-bottom:none;}
+.mini-ev:hover{background:var(--cream);}
+.mini-title{font-size:14px;font-weight:600;}
+.mini-meta{font-size:12px;color:var(--text-tertiary);margin-top:2px;}
+.mini-date{display:inline-flex;align-items:center;gap:4px;margin-top:5px;font-size:11px;font-weight:600;padding:3px 8px;background:var(--beige);border-radius:8px;color:var(--green);}
+.cal-wrap{padding:16px 18px;}
+.cal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.cal-nav{border:none;background:none;cursor:pointer;font-size:14px;color:var(--text-secondary);}
+.cal-title{font-weight:600;font-size:14px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center;}
+.cal-dn{font-size:10px;font-weight:600;color:var(--text-tertiary);padding:3px;}
+.cal-d{font-size:12px;padding:5px 3px;border-radius:6px;cursor:pointer;}
+.cal-d:hover{background:var(--beige);}
+.cal-today{background:var(--dark);color:#fff;}
+.cal-event{font-weight:700;color:var(--green);}
+.cal-empty{color:var(--text-tertiary);}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div style="width:32px;height:32px;background:#262522;border-radius:50%;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-hands-clapping" style="color:#fff;font-size:16px;"></i></div>
+    <span class="nav-brand">MuslimConnect</span>
+  </div>
+  <div class="nav-center">
+    <a href="web-dashboard.html" class="nav-link">Feed</a>
+    <a href="web-events.html" class="nav-link active">Events</a>
+    <a href="web-orgs.html" class="nav-link">Organizations</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="position:relative;"><i class="ph-bold ph-bell" style="font-size:20px;cursor:pointer;color:#6B665F;"></i><span style="position:absolute;top:-2px;right:-2px;width:8px;height:8px;background:#C44536;border-radius:50%;"></span></div>
+    <div class="user-avatar" onclick="location.href='web-profile.html'">AJ</div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <h1>Upcoming Events</h1>
+    <p>Discover halaqas, galas, study circles, and more from your campus Muslim community</p>
+  </div>
+  <div class="filters-bar">
+    <button class="filter-chip active" onclick="filterEvts('all',this)">All Events</button>
+    <button class="filter-chip" onclick="filterEvts('today',this)">Today</button>
+    <button class="filter-chip" onclick="filterEvts('thisweek',this)">This Week</button>
+    <button class="filter-chip" onclick="filterEvts('rsvp',this)">My RSVPs</button>
+    <button class="filter-chip" onclick="filterEvts('following',this)">Following</button>
+    <div class="search-box"><i class="ph-bold ph-magnifying-glass" style="color:#A09A90;"></i><input type="text" placeholder="Search events..."></div>
+  </div>
+  <div class="events-layout">
+    <div class="events-list" id="evList">
+
+      <div class="event-card" data-cat="thisweek rsvp">
+        <div class="event-flyer" style="background:linear-gradient(150deg,#1a2e25,#4A6C58);">
+          <div class="flyer-dot-bg"></div>
+          <span class="event-badge badge-open">Open RSVP</span>
+          <div class="flyer-content">
+            <div class="flyer-org">Muslim Student Association</div>
+            <div class="flyer-title">Annual MSA Gala Night</div>
+            <div class="flyer-meta"><i class="ph-fill ph-map-pin"></i> University Ballroom &nbsp;· Mar 7</div>
+          </div>
+        </div>
+        <div class="event-body">
+          <div class="event-info-row">
+            <div><div class="event-name">Annual MSA Gala Night</div><div class="event-when"><i class="ph-fill ph-clock"></i> Sat, Mar 7 · 12:30 PM &nbsp; <i class="ph-fill ph-map-pin"></i> University Ballroom</div></div>
+            <div class="rsvp-count"><div class="rsvp-num">247</div>RSVPs</div>
+          </div>
+          <div class="event-desc">Join us for an unforgettable evening of community, culture, and connection. Featuring dinner, live nasheeds, and inspiring speakers.</div>
+          <div class="event-tags"><span class="tag">Community</span><span class="tag">Formal</span><span class="tag">Dinner</span><span class="tag">All Welcome</span></div>
+          <div class="event-actions">
+            <button class="btn-rsvp" onclick="rsvpBtn(this)">RSVP Now</button>
+            <button class="btn-icon" title="Save"><i class="ph-bold ph-bookmark"></i></button>
+            <button class="btn-icon" title="Share"><i class="ph-bold ph-share-network"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card" data-cat="today following">
+        <div class="event-flyer" style="background:linear-gradient(150deg,#1e1b4b,#7C3AED);">
+          <div class="flyer-dot-bg"></div>
+          <span class="event-badge badge-open">Open RSVP</span>
+          <div class="flyer-content">
+            <div class="flyer-org">Islamic Knowledge Circle</div>
+            <div class="flyer-title">Quran Reflection Circle</div>
+            <div class="flyer-meta"><i class="ph-fill ph-map-pin"></i> Room 204, Student Center · Tonight</div>
+          </div>
+        </div>
+        <div class="event-body">
+          <div class="event-info-row">
+            <div><div class="event-name">Quran Reflection Circle</div><div class="event-when"><i class="ph-fill ph-clock"></i> Today · 6:30 PM &nbsp; <i class="ph-fill ph-map-pin"></i> Room 204</div></div>
+            <div class="rsvp-count"><div class="rsvp-num">34</div>RSVPs</div>
+          </div>
+          <div class="event-desc">Weekly halaqa to reflect on Quranic verses. We explore tafsir, share personal reflections, and grow spiritually together. All levels welcome.</div>
+          <div class="event-tags"><span class="tag">Halaqa</span><span class="tag">Quran</span><span class="tag">Weekly</span></div>
+          <div class="event-actions">
+            <button class="btn-rsvp" onclick="rsvpBtn(this)">RSVP Now</button>
+            <button class="btn-icon" title="Save"><i class="ph-bold ph-bookmark"></i></button>
+            <button class="btn-icon" title="Share"><i class="ph-bold ph-share-network"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card" data-cat="thisweek following">
+        <div class="event-flyer" style="background:linear-gradient(150deg,#831843,#EC4899);">
+          <div class="flyer-dot-bg"></div>
+          <span class="event-badge badge-soon">Closing Soon</span>
+          <div class="flyer-content">
+            <div class="flyer-org">Sisters of Light</div>
+            <div class="flyer-title">Sisters Iftar Gathering</div>
+            <div class="flyer-meta"><i class="ph-fill ph-map-pin"></i> Community Hall, Islamic Center · Mar 20</div>
+          </div>
+        </div>
+        <div class="event-body">
+          <div class="event-info-row">
+            <div><div class="event-name">Sisters Iftar Gathering</div><div class="event-when"><i class="ph-fill ph-clock"></i> Thu, Mar 20 · 5:45 PM &nbsp; <i class="ph-fill ph-map-pin"></i> Community Hall</div></div>
+            <div class="rsvp-count"><div class="rsvp-num">89</div>RSVPs</div>
+          </div>
+          <div class="event-desc">A warm sisterhood iftar to break fast together during Ramadan. Potluck style — all sisters welcome to bring a dish!</div>
+          <div class="event-tags"><span class="tag">Sisters Only</span><span class="tag">Iftar</span><span class="tag">Ramadan</span></div>
+          <div class="event-actions">
+            <button class="btn-rsvp" onclick="rsvpBtn(this)">RSVP Now</button>
+            <button class="btn-icon" title="Save"><i class="ph-bold ph-bookmark"></i></button>
+            <button class="btn-icon" title="Share"><i class="ph-bold ph-share-network"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card" data-cat="thisweek">
+        <div class="event-flyer" style="background:linear-gradient(150deg,#78350f,#F59E0B);">
+          <div class="flyer-dot-bg"></div>
+          <span class="event-badge badge-open">Open RSVP</span>
+          <div class="flyer-content">
+            <div class="flyer-org">Dawah Outreach Team</div>
+            <div class="flyer-title">Islam 101 Open House</div>
+            <div class="flyer-meta"><i class="ph-fill ph-map-pin"></i> Kane Hall 210 · Mar 22</div>
+          </div>
+        </div>
+        <div class="event-body">
+          <div class="event-info-row">
+            <div><div class="event-name">Islam 101 Open House</div><div class="event-when"><i class="ph-fill ph-clock"></i> Sat, Mar 22 · 2:00 PM &nbsp; <i class="ph-fill ph-map-pin"></i> Kane Hall 210</div></div>
+            <div class="rsvp-count"><div class="rsvp-num">56</div>RSVPs</div>
+          </div>
+          <div class="event-desc">An open, welcoming introduction to Islam for students of all backgrounds. Q&A, refreshments, and free resource packs. All welcome!</div>
+          <div class="event-tags"><span class="tag">Dawah</span><span class="tag">Open to All</span><span class="tag">Q&A</span></div>
+          <div class="event-actions">
+            <button class="btn-rsvp" onclick="rsvpBtn(this)">RSVP Now</button>
+            <button class="btn-icon" title="Save"><i class="ph-bold ph-bookmark"></i></button>
+            <button class="btn-icon" title="Share"><i class="ph-bold ph-share-network"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="events-sidebar">
+      <div class="s-card">
+        <div class="s-header">Your RSVPs</div>
+        <div class="mini-ev"><div class="mini-title">Annual MSA Gala Night</div><div class="mini-meta">University Ballroom</div><span class="mini-date">Mar 7 · 12:30 PM</span></div>
+        <div class="mini-ev"><div class="mini-title">Quran Reflection Circle</div><div class="mini-meta">Room 204, Student Center</div><span class="mini-date">Today · 6:30 PM</span></div>
+      </div>
+      <div class="s-card">
+        <div class="s-header">March 2026</div>
+        <div class="cal-wrap">
+          <div class="cal-hdr"><button class="cal-nav">&#8249;</button><span class="cal-title">March 2026</span><button class="cal-nav">&#8250;</button></div>
+          <div class="cal-grid">
+            <div class="cal-dn">Su</div><div class="cal-dn">Mo</div><div class="cal-dn">Tu</div><div class="cal-dn">We</div><div class="cal-dn">Th</div><div class="cal-dn">Fr</div><div class="cal-dn">Sa</div>
+            <div class="cal-d cal-empty"></div><div class="cal-d cal-empty"></div><div class="cal-d cal-empty"></div><div class="cal-d cal-empty"></div><div class="cal-d cal-empty"></div><div class="cal-d cal-empty"></div><div class="cal-d">1</div>
+            <div class="cal-d">2</div><div class="cal-d">3</div><div class="cal-d">4</div><div class="cal-d">5</div><div class="cal-d">6</div><div class="cal-d">7</div><div class="cal-d cal-event">8</div>
+            <div class="cal-d">9</div><div class="cal-d">10</div><div class="cal-d">11</div><div class="cal-d">12</div><div class="cal-d">13</div><div class="cal-d">14</div><div class="cal-d">15</div>
+            <div class="cal-d">16</div><div class="cal-d">17</div><div class="cal-d cal-event">18</div><div class="cal-d">19</div><div class="cal-d cal-event">20</div><div class="cal-d">21</div><div class="cal-d cal-event">22</div>
+            <div class="cal-d">23</div><div class="cal-d">24</div><div class="cal-d">25</div><div class="cal-d">26</div><div class="cal-d">27</div><div class="cal-d">28</div><div class="cal-d">29</div>
+            <div class="cal-d cal-today">30</div><div class="cal-d">31</div>
+          </div>
+        </div>
+      </div>
+      <div class="s-card">
+        <div class="s-header">Suggested For You</div>
+        <div class="mini-ev"><div class="mini-title">Friday Jummah Prayer</div><div class="mini-meta">HUB Ballroom</div><span class="mini-date">Every Fri · 1:15 PM</span></div>
+        <div class="mini-ev"><div class="mini-title">MSA Weekly Halaqa</div><div class="mini-meta">Smith Hall 305</div><span class="mini-date">Every Wed · 7:00 PM</span></div>
+      </div>
+    </aside>
+  </div>
+</div>
+<script>
+function rsvpBtn(btn){const n=btn.closest('.event-card').querySelector('.rsvp-num');const done=btn.textContent.includes('RSVPed');btn.textContent=done?'RSVP Now':'RSVPed checkmark';btn.style.background=done?'#262522':'#4A6C58';if(!done)n.textContent=parseInt(n.textContent)+1;}
+function filterEvts(cat,el){document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');document.querySelectorAll('.event-card').forEach(c=>{if(cat==='all'){c.style.display='';return;}c.style.display=c.dataset.cat.includes(cat)?'':'none';});}
+</script>
+</body></html>
