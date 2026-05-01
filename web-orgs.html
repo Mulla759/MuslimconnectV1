@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F9F8F3">
+  <title>Organizations — MuslimConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/orgs.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img class="nav-logo" src="assets/logo.svg" alt="MuslimConnect logo">
+      <span class="nav-brand">MuslimConnect</span>
+    </div>
+    <div class="nav-center">
+      <a href="web-dashboard.html" class="nav-link">Feed</a>
+      <a href="web-events.html" class="nav-link">Events</a>
+      <a href="#" class="nav-link active">Organizations</a>
+    </div>
+    <div class="nav-right">
+      <div class="user-avatar" onclick="location.href='web-profile.html'" style="cursor:pointer;">AJ</div>
+    </div>
+  </nav>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <div class="main-content">
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+      <h1 class="page-title">Organizations</h1>
+      <p class="page-subtitle">Discover and follow campus organizations in your Muslim community</p>
+      <div class="stats-row">
+        <span><span class="stat-value">45</span> Organizations</span>
+        <span class="stat-sep">&middot;</span>
+        <span><span class="stat-value">2,400+</span> Members</span>
+        <span class="stat-sep">&middot;</span>
+        <span><span class="stat-value">120+</span> Events This Semester</span>
+      </div>
+    </section>
+
+    <!-- SEARCH & FILTER BAR -->
+    <div class="filter-bar">
+      <div class="search-wrap">
+        <span class="search-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search organizations...">
+      </div>
+      <div class="filter-pills" id="filterPills">
+        <button class="filter-pill active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="msa">MSA Chapters</button>
+        <button class="filter-pill" data-filter="dawah">Dawah</button>
+        <button class="filter-pill" data-filter="academic">Academic</button>
+        <button class="filter-pill" data-filter="cultural">Cultural</button>
+        <button class="filter-pill" data-filter="sports">Sports &amp; Fitness</button>
+        <button class="filter-pill" data-filter="service">Community Service</button>
+        <button class="filter-pill" data-filter="professional">Professional</button>
+      </div>
+    </div>
+
+    <!-- ORGANIZATIONS GRID -->
+    <div class="orgs-grid" id="orgsGrid">
+
+      <!-- No Results Message -->
+      <div class="no-results" id="noResults">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px;opacity:0.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <p>No organizations found matching your search.</p>
+      </div>
+    </div>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+      <div class="cta-card">
+        <h2 class="cta-title">Can't find your organization?</h2>
+        <p class="cta-text">Register your campus organization on MuslimConnect and start building your community today.</p>
+        <button class="btn-register">Register Your Organization</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script src="js/theme-manager.js" defer></script>
+  <script src="js/orgs-filter.js" defer></script>
+  <script src="js/orgs-feed.js"></script>
+</body>
+</html>
