@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile & Settings — MuslimConnect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --green:#4A6C58;--dark:#262522;--cream:#F9F8F3;--beige:#EBE9E1;--border:#DCD9D0;
+  --text-primary:#262522;--text-secondary:#6B665F;--text-tertiary:#A09A90;
+  --font-sans:'DM Sans',sans-serif;--font-serif:'Playfair Display',serif;
+  --radius:12px;
+}
+body{font-family:var(--font-sans);background:var(--cream);color:var(--text-primary);min-height:100vh;}
+/* NAV */
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:64px;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav-left{display:flex;align-items:center;gap:10px;}
+.nav-brand{font-family:var(--font-serif);font-weight:700;font-size:18px;color:var(--dark);}
+.nav-logo{width:32px;height:32px;}
+.nav-center{display:flex;gap:8px;}
+.nav-link{text-decoration:none;color:var(--text-secondary);font-size:14px;font-weight:500;padding:6px 16px;border-radius:20px;transition:all 0.2s;}
+.nav-link:hover,.nav-link.active{background:var(--beige);color:var(--dark);}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.user-avatar{width:36px;height:36px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:14px;cursor:pointer;}
+/* LAYOUT */
+.page-layout{display:grid;grid-template-columns:280px 1fr;gap:0;max-width:1200px;margin:0 auto;padding:32px 24px;gap:32px;}
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:8px;}
+.sidebar-section{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.sidebar-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);padding:16px 20px 8px;}
+.sidebar-item{display:flex;align-items:center;gap:12px;padding:12px 20px;cursor:pointer;transition:background 0.15s;text-decoration:none;color:var(--text-primary);font-size:14px;font-weight:500;}
+.sidebar-item:hover{background:var(--cream);}
+.sidebar-item.active{background:var(--beige);color:var(--dark);}
+.sidebar-item i{font-size:18px;color:var(--text-tertiary);width:20px;}
+.sidebar-item.active i{color:var(--green);}
+.sidebar-item.danger{color:#C44536;}
+.sidebar-item.danger i{color:#C44536;}
+/* MAIN */
+.main-content{display:flex;flex-direction:column;gap:24px;}
+.section-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.section-header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.section-title{font-family:var(--font-serif);font-size:20px;color:var(--dark);}
+.section-subtitle{font-size:13px;color:var(--text-tertiary);margin-top:2px;}
+.section-body{padding:24px;}
+/* PROFILE HERO */
+.profile-hero{display:flex;align-items:center;gap:24px;padding:28px 24px;border-bottom:1px solid var(--border);}
+.avatar-large{width:80px;height:80px;background:linear-gradient(135deg,var(--green),#2F4838);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;font-family:var(--font-serif);font-weight:700;flex-shrink:0;}
+.profile-info h2{font-family:var(--font-serif);font-size:22px;color:var(--dark);}
+.profile-info p{font-size:14px;color:var(--text-secondary);margin-top:4px;}
+.profile-badge{display:inline-flex;align-items:center;gap:6px;background:var(--beige);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;color:var(--green);margin-top:8px;}
+.change-photo-btn{margin-left:auto;padding:8px 16px;border:1px solid var(--border);border-radius:8px;background:#fff;font-size:13px;font-weight:500;cursor:pointer;color:var(--text-secondary);transition:all 0.2s;}
+.change-photo-btn:hover{border-color:var(--dark);color:var(--dark);}
+/* FORM */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-grid.single{grid-template-columns:1fr;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group label{font-size:13px;font-weight:600;color:var(--text-secondary);}
+.form-group input,.form-group select,.form-group textarea{
+  padding:10px 14px;border:1px solid var(--border);border-radius:8px;
+  font-family:var(--font-sans);font-size:14px;color:var(--text-primary);
+  background:var(--cream);outline:none;transition:border 0.2s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green);background:#fff;}
+.form-group textarea{resize:vertical;min-height:80px;}
+/* TOGGLE */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--beige);}
+.toggle-row:last-child{border-bottom:none;}
+.toggle-info h4{font-size:14px;font-weight:600;color:var(--text-primary);}
+.toggle-info p{font-size:12px;color:var(--text-tertiary);margin-top:2px;}
+.toggle{position:relative;width:44px;height:24px;background:var(--border);border-radius:12px;cursor:pointer;transition:background 0.2s;flex-shrink:0;}
+.toggle.on{background:var(--green);}
+.toggle::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:left 0.2s;}
+.toggle.on::after{left:23px;}
+/* SAVE BTN */
+.save-btn{padding:10px 24px;background:var(--dark);color:#fff;border:none;border-radius:8px;font-family:var(--font-sans);font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s;}
+.save-btn:hover{background:var(--green);}
+/* STATS ROW */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.stat-item{background:#fff;padding:20px;text-align:center;}
+.stat-num{font-size:24px;font-family:var(--font-serif);color:var(--dark);font-weight:700;}
+.stat-label{font-size:12px;color:var(--text-tertiary);margin-top:4px;text-transform:uppercase;letter-spacing:0.05em;}
+/* ORG CHIPS */
+.org-chips{display:flex;flex-wrap:wrap;gap:8px;padding:20px 24px;}
+.org-chip{display:flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border);border-radius:20px;font-size:13px;font-weight:500;color:var(--text-primary);}
+.org-chip-dot{width:8px;height:8px;border-radius:50%;}
+/* DANGER ZONE */
+.danger-zone{border:1px solid #FECACA;border-radius:var(--radius);overflow:hidden;}
+.danger-header{padding:16px 24px;background:#FEF2F2;border-bottom:1px solid #FECACA;}
+.danger-header h3{font-size:14px;font-weight:600;color:#C44536;}
+.danger-body{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;}
+.danger-body p{font-size:13px;color:var(--text-secondary);}
+.danger-btn{padding:8px 16px;background:#C44536;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-left">
+    <div style="width:32px;height:32px;background:#262522;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+      <i class="ph-fill ph-hands-clapping" style="color:#fff;font-size:16px;"></i>
+    </div>
+    <span class="nav-brand">MuslimConnect</span>
+  </div>
+  <div class="nav-center">
+    <a href="web-dashboard.html" class="nav-link">Feed</a>
+    <a href="web-events.html" class="nav-link">Events</a>
+    <a href="web-orgs.html" class="nav-link">Organizations</a>
+  </div>
+  <div class="nav-right">
+    <div class="user-avatar" onclick="location.href='web-profile.html'">AJ</div>
+  </div>
+</nav>
+
+<div class="page-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="section-card">
+      <div class="profile-hero" style="flex-direction:column;align-items:center;text-align:center;padding:24px;">
+        <div class="avatar-large">AJ</div>
+        <div style="margin-top:12px;">
+          <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;">Abdullahi Jama</div>
+          <div style="font-size:13px;color:#6B665F;margin-top:2px;">abdi@uw.edu</div>
+          <div class="profile-badge"><i class="ph-fill ph-check-circle"></i> UW Student Verified</div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Account</div>
+      <a href="#profile" class="sidebar-item active" onclick="showSection('profile',this)">
+        <i class="ph-bold ph-user"></i> Profile
+      </a>
+      <a href="#notifications" class="sidebar-item" onclick="showSection('notifications',this)">
+        <i class="ph-bold ph-bell"></i> Notifications
+      </a>
+      <a href="#privacy" class="sidebar-item" onclick="showSection('privacy',this)">
+        <i class="ph-bold ph-lock"></i> Privacy
+      </a>
+      <a href="#campus" class="sidebar-item" onclick="showSection('campus',this)">
+        <i class="ph-bold ph-buildings"></i> Campus & Orgs
+      </a>
+      <a href="#prayer" class="sidebar-item" onclick="showSection('prayer',this)">
+        <i class="ph-bold ph-moon-stars"></i> Prayer Settings
+      </a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">More</div>
+      <a href="#" class="sidebar-item">
+        <i class="ph-bold ph-question"></i> Help & Support
+      </a>
+      <a href="web-auth.html" class="sidebar-item danger">
+        <i class="ph-bold ph-sign-out"></i> Sign Out
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- PROFILE SECTION -->
+    <div id="sec-profile">
+      <div class="section-card">
+        <div class="stats-row">
+          <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Organizations</div></div>
+          <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">RSVPs</div></div>
+          <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Saved Events</div></div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-header">
+          <div><div class="section-title">Personal Information</div><div class="section-subtitle">Update your name, bio and contact details</div></div>
+          <button class="save-btn" onclick="alert('Profile saved!')">Save Changes</button>
+        </div>
+        <div class="section-body">
+          <div class="form-grid">
+            <div class="form-group"><label>First Name</label><input type="text" value="Abdullahi"></div>
+            <div class="form-group"><label>Last Name</label><input type="text" value="Jama"></div>
+            <div class="form-group"><label>Campus Email</label><input type="email" value="abdi@uw.edu"></div>
+            <div class="form-group"><label>Phone (optional)</label><input type="tel" placeholder="+1 (206) 555-0000"></div>
+          </div>
+          <div class="form-group" style="margin-top:16px;">
+            <label>Bio</label>
+            <textarea>Muslim student at UW Seattle. Love organizing community events and study circles. MSA member since 2023.</textarea>
+          </div>
+          <div class="form-grid" style="margin-top:16px;">
+            <div class="form-group">
+              <label>Campus</label>
+              <select>
+                <option selected>University of Washington</option>
+                <option>Seattle University</option>
+                <option>Seattle Pacific University</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Year</label>
+              <select>
+                <option>Freshman</option>
+                <option>Sophomore</option>
+                <option selected>Junior</option>
+                <option>Senior</option>
+                <option>Graduate</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-header">
+          <div><div class="section-title">My Organizations</div><div class="section-subtitle">Organizations you follow</div></div>
+          <a href="web-orgs.html" style="font-size:13px;color:#4A6C58;font-weight:600;text-decoration:none;">Browse All</a>
+        </div>
+        <div class="org-chips">
+          <div class="org-chip"><div class="org-chip-dot" style="background:#4A6C58;"></div>Muslim Student Association</div>
+          <div class="org-chip"><div class="org-chip-dot" style="background:#7C3AED;"></div>Islamic Knowledge Circle</div>
+          <div class="org-chip"><div class="org-chip-dot" style="background:#EC4899;"></div>Sisters of Light</div>
+          <div class="org-chip"><div class="org-chip-dot" style="background:#F59E0B;"></div>Dawah Outreach Team</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTIFICATIONS SECTION -->
+    <div id="sec-notifications" style="display:none;">
+      <div class="section-card">
+        <div class="section-header">
+          <div><div class="section-title">Notification Preferences</div><div class="section-subtitle">Choose what you want to be notified about</div></div>
+          <button class="save-btn" onclick="alert('Preferences saved!')">Save</button>
+        </div>
+        <div class="section-body">
+          
+          <div class="toggle-row">
+            <div class="toggle-info"><h4>Prayer Time Alerts</h4><p>Get notified 10 minutes before each salah</p></div>
+            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-info"><h4>Event Reminders</h4><p>Reminders for events you RSVPed to</p></div>
+            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-info"><h4>New Events from Followed Orgs</h4><p>When organizations you follow post new events</p></div>
+            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-info"><h4>Registration Deadlines</h4><p>Alerts when RSVP cutoff is approaching</p></div>
+            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-info"><h4>Weekly Community Digest</h4><p>Summary of upcoming events every Monday</p></div>
+            <div class="toggle " onclick="this.classList.toggle('on')"></div>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-info"><h4>Direct Messages</h4><p>Notify when someone messages you</p></div>
+            <div class="toggle " onclick="this.classList.toggle('on')"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRIVACY SECTION -->
+    <div id="sec-privacy" style="display:none;">
+      <div class="section-card">
+        <div class="section-header">
+          <div><div class="section-title">Privacy Settings</div><div class="section-subtitle">Control your visibility and data</div></div>
+          <button class="save-btn" onclick="alert('Saved!')">Save</button>
+        </div>
+        <div class="section-body">
+          
+          <div class="toggle-row">
+            <div class="toggle-info"><h4>Public Profile</h4><p>Let other students find your profile</p></div>
+            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-info"><h4>Show Organizations</h4><p>Display which orgs you follow on your profile</p></div>
+            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-info"><h4>Show RSVPs</h4><p>Let others see what events you plan to attend</p></div>
+            <div class="toggle " onclick="this.classList.toggle('on')"></div>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-info"><h4>Allow Event Tags</h4><p>Let org admins tag you in event posts</p></div>
+            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+          </div>
+        </div>
+      </div>
+      <div class="danger-zone">
+        <div class="danger-header"><h3>Danger Zone</h3></div>
+        <div class="danger-body">
+          <p>Permanently delete your account and all your data. This cannot be undone.</p>
+          <button class="danger-btn" onclick="alert('Please contact support to delete your account.')">Delete Account</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAMPUS & ORGS -->
+    <div id="sec-campus" style="display:none;">
+      <div class="section-card">
+        <div class="section-header">
+          <div><div class="section-title">Campus & Organizations</div><div class="section-subtitle">Manage your campus affiliation and org memberships</div></div>
+        </div>
+        <div class="section-body">
+          <div class="form-grid single">
+            <div class="form-group"><label>Primary Campus</label>
+              <select><option selected>University of Washington — Seattle</option><option>UW Bothell</option><option>UW Tacoma</option></select>
+            </div>
+            <div class="form-group" style="margin-top:12px;"><label>Student ID (for verification)</label><input type="text" placeholder="e.g. 1234567" value="2156834"></div>
+          </div>
+          <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border);">
+            <div style="font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:12px;">FOLLOWED ORGANIZATIONS (4)</div>
+            
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--beige);">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;background:#4A6C5822;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#4A6C58;font-weight:700;font-size:14px;">M</div>
+                <div><div style="font-size:14px;font-weight:600;">Muslim Student Association</div><div style="font-size:12px;color:#A09A90;">MSA Chapter</div></div>
+              </div>
+              <button onclick="this.textContent=this.textContent=='Unfollow'?'Follow':'Unfollow'" style="padding:6px 14px;border:1px solid var(--border);border-radius:20px;font-size:13px;background:#fff;cursor:pointer;font-family:'DM Sans',sans-serif;">Unfollow</button>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--beige);">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;background:#7C3AED22;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#7C3AED;font-weight:700;font-size:14px;">I</div>
+                <div><div style="font-size:14px;font-weight:600;">Islamic Knowledge Circle</div><div style="font-size:12px;color:#A09A90;">Academic</div></div>
+              </div>
+              <button onclick="this.textContent=this.textContent=='Unfollow'?'Follow':'Unfollow'" style="padding:6px 14px;border:1px solid var(--border);border-radius:20px;font-size:13px;background:#fff;cursor:pointer;font-family:'DM Sans',sans-serif;">Unfollow</button>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--beige);">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;background:#EC489922;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#EC4899;font-weight:700;font-size:14px;">S</div>
+                <div><div style="font-size:14px;font-weight:600;">Sisters of Light</div><div style="font-size:12px;color:#A09A90;">Community Service</div></div>
+              </div>
+              <button onclick="this.textContent=this.textContent=='Unfollow'?'Follow':'Unfollow'" style="padding:6px 14px;border:1px solid var(--border);border-radius:20px;font-size:13px;background:#fff;cursor:pointer;font-family:'DM Sans',sans-serif;">Unfollow</button>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--beige);">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;background:#F59E0B22;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#F59E0B;font-weight:700;font-size:14px;">D</div>
+                <div><div style="font-size:14px;font-weight:600;">Dawah Outreach Team</div><div style="font-size:12px;color:#A09A90;">Dawah</div></div>
+              </div>
+              <button onclick="this.textContent=this.textContent=='Unfollow'?'Follow':'Unfollow'" style="padding:6px 14px;border:1px solid var(--border);border-radius:20px;font-size:13px;background:#fff;cursor:pointer;font-family:'DM Sans',sans-serif;">Unfollow</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRAYER SETTINGS -->
+    <div id="sec-prayer" style="display:none;">
+      <div class="section-card">
+        <div class="section-header">
+          <div><div class="section-title">Prayer Settings</div><div class="section-subtitle">Customize your prayer time experience</div></div>
+          <button class="save-btn" onclick="alert('Saved!')">Save</button>
+        </div>
+        <div class="section-body">
+          <div class="form-grid">
+            <div class="form-group"><label>Calculation Method</label>
+              <select><option selected>ISNA (Islamic Society of North America)</option><option>Muslim World League</option><option>Egyptian Authority</option><option>Umm Al-Qura (Makkah)</option></select>
+            </div>
+            <div class="form-group"><label>Asr Method</label>
+              <select><option selected>Standard (Shafi'i)</option><option>Hanafi</option></select>
+            </div>
+            <div class="form-group"><label>Alert Before Prayer</label>
+              <select><option>5 minutes</option><option selected>10 minutes</option><option>15 minutes</option><option>20 minutes</option></select>
+            </div>
+            <div class="form-group"><label>Time Format</label>
+              <select><option selected>12-hour (AM/PM)</option><option>24-hour</option></select>
+            </div>
+          </div>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
+            
+            <div class="toggle-row">
+              <div class="toggle-info"><h4>Fajr Alert</h4></div>
+              <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-info"><h4>Sunrise Alert</h4></div>
+              <div class="toggle " onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-info"><h4>Dhuhr Alert</h4></div>
+              <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-info"><h4>Asr Alert</h4></div>
+              <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-info"><h4>Maghrib Alert</h4></div>
+              <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-info"><h4>Isha Alert</h4></div>
+              <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id, el) {
+  document.querySelectorAll('[id^="sec-"]').forEach(s => s.style.display = 'none');
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  document.getElementById('sec-' + id).style.display = 'flex';
+  document.getElementById('sec-' + id).style.flexDirection = 'column';
+  document.getElementById('sec-' + id).style.gap = '24px';
+  el.classList.add('active');
+  return false;
+}
+// init
+document.getElementById('sec-profile').style.display = 'flex';
+document.getElementById('sec-profile').style.flexDirection = 'column';
+document.getElementById('sec-profile').style.gap = '24px';
+</script>
+</body>
+</html>
